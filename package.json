@@ -1,20 +1,28 @@
 {
-  "name": "CV_project",
+  "name": "TestProject",
   "version": "1.0.0",
-  "description": "CV web page made with Pug, Stylus, Webpack",
-  "main": "index.js",
+  "description": "",
+  "private": "true",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/imin314/CV_project.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server --open"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/imin314/CV_project/issues"
+  "devDependencies": {
+    "css-loader": "^1.0.0",
+    "pug": "^2.0.3",
+    "pug-loader": "^2.4.0",
+    "style-loader": "^0.21.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.0"
   },
-  "homepage": "https://github.com/imin314/CV_project#readme"
+  "dependencies": {
+    "html-webpack-plugin": "^3.2.0"
+  }
 }
