@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "TestProject",
   "version": "1.0.0",
   "description": "",
@@ -15,6 +15,7 @@
     "css-loader": "^1.0.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
+    "normalize.css": "^8.0.0",
     "pug": "^2.0.3",
     "pug-loader": "^2.4.0",
     "style-loader": "^0.21.0",
