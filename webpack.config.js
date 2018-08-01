@@ -35,14 +35,23 @@ module.exports = {
         },
         {
   			test: /\.(ttf|svg|eot|woff)$/,
+  			exclude: [/img/],
 		  	use: {
 		    loader: 'file-loader',
 		    options: {
-		    name: "./fonts/[name].[ext]",
+		    name: "./assets/fonts/[name].[ext]",
 		    publicPath: "../"
 		    },
 		  },
-		}
+		},
+		{
+		test: /\.(jpg|png|svg)$/,
+		exclude: [/fonts/],
+        loader: 'file-loader',
+        options: {
+        	name: './assets/img/[name].[ext]',
+                 },
+         }
     ]
     }
 };
