@@ -28,7 +28,17 @@ module.exports = {
         {
             test: /\.styl$/,
             loader: 'style-loader!css-loader!stylus-loader'
-        }
+        },
+        {
+  			test: /\.(ttf|svg|eot|woff)$/,
+		  	use: {
+		    loader: "file-loader",
+		    options: {
+		    name: "./fonts/[name].[ext]",
+		    publicPath: "../"
+		    },
+		  },
+		}
     ]
     }
 };

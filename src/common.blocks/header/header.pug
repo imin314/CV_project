@@ -1,4 +1,14 @@
-include __photo/header__photo.pug
-include __firstname/header__firstname.pug
-include __lastname/header__lastname.pug
-include __job-title/header__job-title.pug
+- var headerContent = {
+-	firstName: 'name here',
+-	lastName: 'surname',
+-	jobTitle: 'graphic designer'
+-}
+
+mixin header(headerInfo)
+	section.header
+		.circle.header__circle
+		h1.header__firstname= headerInfo.firstName
+		h1.header__lastname= headerInfo.lastName
+		h2.header__job-title= headerInfo.jobTitle
+
++header(headerContent)
