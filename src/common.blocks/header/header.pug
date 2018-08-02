@@ -4,11 +4,11 @@
 -	jobTitle: 'graphic designer'
 -}
 
-mixin header(headerInfo)
+mixin header(content)
 	section.header
 		.circle.header__circle
-		h1.header__firstname= headerInfo.firstName
-		h1.header__lastname= headerInfo.lastName
-		h2.header__job-title= headerInfo.jobTitle
+		h1.header__firstname= content.firstName
+		h1.header__lastname= content.lastName
+		h2.header__job-title= content.jobTitle
 
 +header(headerContent)

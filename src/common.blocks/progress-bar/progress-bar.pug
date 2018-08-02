@@ -1,0 +1,8 @@
+mixin progressBar(max, value)
+	.progress-bar
+	- for (var i = 0; i < value; i++){
+		.progress-bar__circle--filled
+	- }
+	- for (var i = 0; i < max-value; i++){
+		.progress-bar__circle
+	- }
