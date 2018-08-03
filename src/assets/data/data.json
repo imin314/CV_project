@@ -26,13 +26,58 @@
           "title": "creative",
 	  "value": "10"
         },
-{
+	{
           "title": "creative",
 	  "value": "10"
         },
-{
+	{
           "title": "creative",
 	  "value": "10"
+        }
+      ]
+},
+	"education": {
+"items" :
+	[{"title": "master degree", "start": "feb 2011", "end": "jun 2014", "place": "university name", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
+	{"title": "master degree", "start": "feb 2011", "end": "jun 2014", "place": "university name", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
+	{"title": "master degree", "start": "feb 2011", "end": "jun 2014", "place": "university name", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
+	{"title": "master degree", "start": "feb 2011", "end": "jun 2014", "place": "university name", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."}]
+},
+
+"experience": {
+"items" :
+	[{"title": "company name", "start": "feb 2011", "end": "jun 2014", "place": "your job here", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
+	{"title": "company name", "start": "feb 2011", "end": "jun 2014", "place": "your job here", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
+	{"title": "company name", "start": "feb 2011", "end": "jun 2014", "place": "your job here", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
+	{"title": "company name", "start": "feb 2011", "end": "jun 2014", "place": "your job here", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."}]
+},
+
+"software": {
+	"max": 10,
+      	"items": [
+        {
+          "title": "photoshop",
+	  "value": "8"
+        },
+        {
+          "title": "photoshop",
+	  "value": "8"
+        },
+	{
+          "title": "photoshop",
+	  "value": "8"
+        },
+	{
+          "title": "photoshop",
+	  "value": "8"
+        },
+{
+          "title": "photoshop",
+	  "value": "8"
+        },
+{
+          "title": "photoshop",
+	  "value": "8"
         }
       ]
 }

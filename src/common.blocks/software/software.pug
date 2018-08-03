@@ -1,0 +1,12 @@
+include ../section-header/section-header.pug
+include ../progress-bar/progress-bar.pug
+
+mixin software(content)
+	section.software
+		+sectionHeader("software")
+		.software__software-box
+		each val in content.items
+			.software__software-item
+				p.software__title= val.title
+				.software__progress-bar
+					+progressBar(content.max, val.value, false)

@@ -1,6 +1,10 @@
 include common.blocks/header/header.pug
 include common.blocks/profile/profile.pug
 include common.blocks/contact/contact.pug
+include common.blocks/skills/skills.pug
+include common.blocks/education/education.pug
+include common.blocks/experience/experience.pug
+include common.blocks/software/software.pug
 
 - var data = require('./assets/data/data.json')
 
@@ -13,6 +17,8 @@ html
 	body
 		+header(data.header)
 		+profile(data.profile)
-		+contact(data.content)
-		//-include common.blocks/skills/skills.pug
-		//p #{data.header.firstName}
+		+contact(data.contact)
+		+skills(data.skills)
+		+education(data.education)
+		+experience(data.experience)
+		+software(data.software)

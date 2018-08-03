@@ -1,0 +1,8 @@
+mixin list(data)
+	ul.list
+		each val in data
+			li.list__item
+				h3.list__title= val.title
+				h2.list__date= "// " + val.start + " - " + val.end
+				h2.list__place= val.place
+				p.list__desription= val.description

@@ -1,12 +1,10 @@
 include ../section-header/section-header.pug
 
-mixin contact(content, items)
+mixin contact(content)
 	section.contact
-		+sectionHeader(content)
+		+sectionHeader("contact")
 		table.contact__table
-			each val, index in items
+			each val, index in content
 				tr
 					td.contact__cell.contact__cell--blue= index
 					td.contact__cell= val
-
-+contact(contactContent, contactItems)
