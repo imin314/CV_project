@@ -1,11 +1,18 @@
+include common.blocks/header/header.pug
+include common.blocks/profile/profile.pug
+include common.blocks/contact/contact.pug
+
+- var data = require('./assets/data/data.json')
+
 doctype html
 html
 	head
 	meta(charset = 'utf-8')
-	meta(name='viewport', content="initial-scale=1.0, width=device-width")
+	meta(name='viewport', content="inital-scale=1.0, width=device-width")
 	title CV Project
 	body
-		include common.blocks/header/header.pug
-		include common.blocks/profile/profile.pug
-		include common.blocks/contact/contact.pug
-		include common.blocks/skills/skills.pug
+		+header(data.header)
+		+profile(data.profile)
+		+contact(data.content)
+		//-include common.blocks/skills/skills.pug
+		//p #{data.header.firstName}

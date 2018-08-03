@@ -1,5 +1,5 @@
-mixin sectionHeader(headerInfo)
+mixin sectionHeader(header)
 	header.section-header
-		.circle.section-header__circle(style='background-image: url('+headerInfo.image+')')
-		h2.section-header__title= headerInfo.title
+		.circle.section-header__circle(style='background-image: url(./assets/img/'+header+'icon.svg)')
+		h2.section-header__title= header
 		.section-header__line
