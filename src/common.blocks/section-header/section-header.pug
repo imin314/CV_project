@@ -2,6 +2,7 @@ mixin sectionHeader(header)
 	- var image = require("./assets/img/"+ header + "-icon.svg")
 
 	header.section-header
-		.circle.section-header__circle(style='background-image: url('+ image +')')
+		.section-header__circle
+			.circle.circle--small(style='background-image: url('+ image +')')
 		h2.section-header__title= header
 		.section-header__line

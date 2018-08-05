@@ -1,5 +1,13 @@
 .circle
+	display inline-block
 	border-radius 50%
 	background-color color-main
-	border 16px solid #fff
 	box-shadow 0 0 0 2px color-main
+	width 250px
+	border-width 15px
+	border-color #fff
+	border-style solid
+	padding-bottom @width - (2*@border-width)
+	height 0	
+
+@import 'circle--small.styl'
