@@ -15,10 +15,13 @@ html
 	meta(name='viewport', content="inital-scale=1.0, width=device-width")
 	title CV Project
 	body
-		+header(data.header)
-		+profile(data.profile)
-		+contact(data.contact)
-		+skills(data.skills)
-		+education(data.education)
-		+experience(data.experience)
-		+software(data.software)
+		.container
+			.left-column
+				+header(data.header)
+				+profile(data.profile)
+				+contact(data.contact)
+				+skills(data.skills)
+			.right-column
+				+education(data.education)
+				+experience(data.experience)
+				+software(data.software)

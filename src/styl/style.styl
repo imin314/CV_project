@@ -4,10 +4,34 @@
 @import '../common.blocks/section-header/styl/section-header.styl'
 @import '../common.blocks/progress-bar/styl/progress-bar.styl'
 @import '../common.blocks/header/styl/header.styl'
+@import '../common.blocks/profile/styl/profile.styl'
 @import '../common.blocks/contact/styl/contact.styl'
 
+*
+	box-sizing border-box
 html
 	font-family font-family
 	font-size font-size
 	text-color text-color
-	line-height line-height
+
+.container
+	width 100%
+	margin 0 auto
+
+.container::after
+	content ""
+	display table
+	clear both
+
+.left-column
+	width percentage(449px/full-width)
+	margin-left percentage(68px/full-width)
+	margin-right percentage(84px/full-width)
+	float left
+
+.right-column
+	width percentage(697px/full-width)
+	float left
+
+h1, h2
+	margin 0
