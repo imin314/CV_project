@@ -48,36 +48,35 @@
 "items" :
 	[{"title": "company name", "start": "feb 2011", "end": "jun 2014", "place": "your job here", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
 	{"title": "company name", "start": "feb 2011", "end": "jun 2014", "place": "your job here", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
-	{"title": "company name", "start": "feb 2011", "end": "jun 2014", "place": "your job here", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
 	{"title": "company name", "start": "feb 2011", "end": "jun 2014", "place": "your job here", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."}]
 },
 
 "software": {
-	"max": 10,
+	"max": 300,
       	"items": [
         {
           "title": "photoshop",
-	  "value": "8"
+	  "value": "275"
         },
         {
-          "title": "photoshop",
-	  "value": "8"
+          "title": "illustrator",
+	  "value": "215"
         },
 	{
-          "title": "photoshop",
-	  "value": "8"
+          "title": "indesign",
+	  "value": "170"
         },
 	{
-          "title": "photoshop",
-	  "value": "8"
+          "title": "dreamweaver",
+	  "value": "250"
         },
 {
-          "title": "photoshop",
-	  "value": "8"
+          "title": "after effects",
+	  "value": "185"
         },
 {
-          "title": "photoshop",
-	  "value": "8"
+          "title": "html&css3",
+	  "value": "275"
         }
       ]
 }

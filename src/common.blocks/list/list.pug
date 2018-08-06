@@ -1,8 +1,8 @@
-mixin list(data)
+mixin list(data, classname)
 	ul.list
 		each val in data
 			li.list__item
-				h3.list__title= val.title
+				h3.list__title&attributes(attributes)= val.title
 				h2.list__date= "// " + val.start + " - " + val.end
 				h2.list__place= val.place
-				p.list__desription= val.description
+				p.list__description= val.description

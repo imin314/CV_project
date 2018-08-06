@@ -1,8 +1,3 @@
-mixin progressBar(max, value, isRound)
-	.progress-bar
-		- for (var i = 0; i < value; i++){
-		div(class=(isRound ? 'progress-bar__item progress-bar__item--filled progress-bar__item--round': 'progress-bar__item progress-bar__item--filled'))
-		- }
-		- for (var i = value; i < max; i++){
-		div(class=(isRound ? 'progress-bar__item progress-bar__item--round': 'progress-bar__item'))
-		- }
+mixin progressBar(max, value)
+	.progress-bar(style='width: '+ max +'px')
+		.progress-bar__inner(style='width: '+ value + 'px')
