@@ -5,8 +5,8 @@ mixin skills(content)
 	section.skills
 		+sectionHeader("skills")
 		.skills__skill-box
-		each val in content.items
-			.skills__skill-item
-				p.skills__title= val.title
-				.skills__progress-bar
-					+progressBar(content.max, val.value, true)
+			each val in content.items
+				.skills__skill-item
+					p.skills__title= val.title
+					.skills__progress-bar
+						+progressBar(content.max, val.value, true)

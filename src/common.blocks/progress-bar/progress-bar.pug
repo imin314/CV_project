@@ -1,8 +1,8 @@
 mixin progressBar(max, value, isRound)
 	.progress-bar
 		- for (var i = 0; i < value; i++){
-		div(class=(isRound ? 'progress-bar__item--filled progress-bar__item--round': 'progress-bar__item--filled'))
+		div(class=(isRound ? 'progress-bar__item progress-bar__item--filled progress-bar__item--round': 'progress-bar__item progress-bar__item--filled'))
 		- }
-		- for (var i = 0; i < max-value; i++){
+		- for (var i = value; i < max; i++){
 		div(class=(isRound ? 'progress-bar__item progress-bar__item--round': 'progress-bar__item'))
 		- }

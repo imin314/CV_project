@@ -16,23 +16,23 @@
 	"website": "www.yourweb.com"
 	},
 	"skills": {
-	"max": 10,
+	"max": 12,
       	"items": [
         {
           "title": "creative",
-	  "value": "10"
+	  "value": "9"
         },
         {
-          "title": "creative",
-	  "value": "10"
+          "title": "teamwork",
+	  "value": "11"
         },
 	{
-          "title": "creative",
-	  "value": "10"
+          "title": "innovative",
+	  "value": "6"
         },
 	{
-          "title": "creative",
-	  "value": "10"
+          "title": "communication",
+	  "value": "11"
         }
       ]
 },
