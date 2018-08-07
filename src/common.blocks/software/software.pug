@@ -7,6 +7,6 @@ mixin software(content)
 		.software__software-box
 			each val in content.items
 				.software__software-item
-					p.software__title= val.title
+					h3.software__title= val.title
 					.software__progress-bar
 						+progressBar(content.max, val.value)

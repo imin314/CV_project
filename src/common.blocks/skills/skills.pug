@@ -7,6 +7,6 @@ mixin skills(content)
 		.skills__skill-box
 			each val in content.items
 				.skills__skill-item
-					p.skills__title= val.title
+					h3.skills__title= val.title
 					.skills__progress-bar-circle
 						+progressBarCircle(content.max, val.value)

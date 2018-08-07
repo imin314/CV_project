@@ -3,5 +3,4 @@ include ../section-header/section-header.pug
 mixin profile(content)
 	section.profile
 		+sectionHeader("profile")
-		p.profile__text= content.text
-			strong= content.textBold
+		p.profile__text!= content.text
