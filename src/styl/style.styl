@@ -21,24 +21,35 @@ html
 	color text-color
 
 .container
-	width 100%
+	width 1220px
 	margin 0 auto
 	padding 84px 0 104px 0
-
+	/*margin-left 68px
+	margin-right 62px*/
+	display flex
+	flex-direction row
+	justify-content space-between
+/*
 .container::after
 	content ""
 	display table
 	clear both
-
+*/
 .left-column
-	width percentage(449px/full-width)
-	margin-left percentage(68px/full-width)
+	width 450px
+	/*margin-left percentage(68px/full-width)
 	margin-right percentage(84px/full-width)
-	float left
+	float left*/
+	display flex
+	flex-direction column
+	justify-content space-between
 
 .right-column
-	width percentage(685px/full-width)
-	float left
+	width 685px
+	/*float left*/
+	display flex
+	flex-direction column
+	justify-content space-between
 
 h1, h2, h3, p
 	margin 0
