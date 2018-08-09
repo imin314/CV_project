@@ -1,3 +1,5 @@
 mixin progressBar(max, value)
-	.progress-bar(style='width: '+ max +'px')
-		.progress-bar__inner(style='width: '+ value + 'px')
+	- var maxWidth = (max*100/1349)
+	- var valueWidth = (value*100/max)
+	.progress-bar(style='width: '+ maxWidth +'vw')
+		.progress-bar__inner(style='width: '+ valueWidth + '%')

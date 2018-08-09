@@ -1,7 +1,10 @@
 .contact__cell
 	border none
-	font-size 24px
-	padding-top 31px
+	font-size f=(24px/font-size)rem
+	padding-top p=(31px/font-size)rem
+	@media screen and (max-width: 1200px)
+		font-size f*0.8
+		padding-top p*0.8
 
 tr:first-child .contact__cell
 	padding-top 0

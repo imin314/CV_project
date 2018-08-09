@@ -4,6 +4,8 @@
 @import 'header__job-title.styl'
 
 .header
-	margin-top 12px
-	margin-bottom 83px
-	padding-left 17px
+	margin-top (12px/font-size)rem
+	margin-bottom (83px/font-size)rem
+	padding-left percentage(17px/447.66px)
+	@media screen and (max-width: 1042px)
+		margin-bottom 35px
