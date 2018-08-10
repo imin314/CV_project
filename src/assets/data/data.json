@@ -51,31 +51,30 @@
 },
 
 "software": {
-	"max": 300,
       	"items": [
         {
           "title": "photoshop",
-	  "value": "275"
-        },
-        {
-          "title": "illustrator",
-	  "value": "215"
-        },
-	{
-          "title": "indesign",
-	  "value": "170"
+	  "value": "91.66666667"
         },
 	{
           "title": "dreamweaver",
-	  "value": "250"
+	  "value": "83.33333333"
         },
-{
+	{
+          "title": "illustrator",
+	  "value": "71.66666667"
+        },
+	{
           "title": "after effects",
-	  "value": "185"
+	  "value": "61.66666667"
         },
-{
+	{
+          "title": "indesign",
+	  "value": "56.66666667"
+        },
+	{
           "title": "html&css3",
-	  "value": "275"
+	  "value": "91.66666667"
         }
       ]
 }
