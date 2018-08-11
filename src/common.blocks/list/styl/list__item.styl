@@ -1,26 +1,19 @@
 .list__item
 	list-style none
 	position relative
-	margin-left ml=55px
+	margin-left (55px/initial-font-size)rem
 	margin-top (16px/initial-font-size)rem
-	@media screen and (max-width: 1200px)
-		margin-left ml*0.8
 
 .list__item::before
 	content ""
 	position absolute
 	border-radius 50%
-	width w=(21.75px/initial-font-size)rem
+	width (21.75px/initial-font-size)rem
 	height @width
 	margin-right 5px
-	top t=(5px/initial-font-size)rem
-	left l=-44px
+	top (5px/initial-font-size)rem
+	left (-44px/initial-font-size)rem
 	background-color text-color
-	@media screen and (max-width: 1200px)
-		width w*0.8
-		height @width
-		top t*0.8
-		left l*0.8
 
 .list-item:first-child
 	margin-top 0

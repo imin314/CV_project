@@ -2,9 +2,10 @@ include ../section-header/section-header.pug
 
 mixin contact(content)
 	section.contact
-		+sectionHeader("contact")
+		.contact__section-header
+			+sectionHeader("contact")
 		table.contact__table
 			each val, index in content
 				tr
-					td.contact__cell.contact__cell--blue= index
+					td.contact__cell.contact__cell_color_blue= index
 					td.contact__cell= val

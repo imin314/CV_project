@@ -3,5 +3,7 @@ include ../list/list.pug
 
 mixin education(content)
 	section.education
-		+sectionHeader("education")
-		+list(content.items)(class="list__title--blue")
+		.education__section-header
+			+sectionHeader("education")
+		.education__list
+			+list(content.items)(class="list__title_color_blue")

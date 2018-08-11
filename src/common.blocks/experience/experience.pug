@@ -3,5 +3,7 @@ include ../list/list.pug
 
 mixin experience(content)
 	section.experience
-		+sectionHeader("experience")
-		+list(content.items)
+		.experience__section-header
+			+sectionHeader("experience")
+		.experience__list
+			+list(content.items)

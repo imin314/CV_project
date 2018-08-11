@@ -17,11 +17,18 @@ html
 	body
 		.container
 			.left-column
-				+header(data.header)
-				+profile(data.profile)
-				+contact(data.contact)
-				+skills(data.skills)
+				.left-column__header
+					+header(data.header)
+				.left-column__profile
+					+profile(data.profile)
+				.left-column__contact
+					+contact(data.contact)
+				.left-column__skills
+					+skills(data.skills)
 			.right-column
-				+education(data.education)
-				+experience(data.experience)
-				+software(data.software)
+				.right-column__education
+					+education(data.education)
+				.right-column__experience
+					+experience(data.experience)
+				.right-column__software
+					+software(data.software)

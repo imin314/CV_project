@@ -3,7 +3,8 @@ include ../progress-bar/progress-bar.pug
 
 mixin software(content)
 	section.software
-		+sectionHeader("software")
+		.software__section-header
+			+sectionHeader("software")
 		.software__software-box
 			each val in content.items
 				.software__software-item
