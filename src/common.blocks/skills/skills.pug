@@ -1,5 +1,5 @@
 include ../section-header/section-header.pug
-include ../progress-bar-circle/progress-bar-circle.pug
+include ../dot-progress-bar/dot-progress-bar.pug
 
 mixin skills(content)
 	section.skills
@@ -8,5 +8,5 @@ mixin skills(content)
 			each val in content.items
 				.skills__skill-item
 					h3.skills__title= val.title
-					.skills__progress-bar-circle
-						+progressBarCircle(content.max, val.value)
+					.skills__dot-progress-bar
+						+dotProgressBar(content.max, val.value)
