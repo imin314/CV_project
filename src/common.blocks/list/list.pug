@@ -3,6 +3,6 @@ mixin list(data, classname)
 		each val in data
 			li.list__item
 				h3.list__title&attributes(attributes)= val.title
-				h3.list__date!= "// " + val.start + " - " + val.end
+				h3.list__date!= val.start + " - " + val.end
 				h3.list__place= val.place
 				p.list__description= val.description

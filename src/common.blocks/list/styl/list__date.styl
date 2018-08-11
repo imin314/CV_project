@@ -3,3 +3,13 @@
 	text-transform capitalize
 	font-weight normal
 	white-space nowrap
+
+.list__date::before
+	content "// "
+	display inherit
+	text-transform inherit
+	font-weight inherit
+	white-space inherit
+	@media screen and (max-width: 500px)
+		display block
+		content ""
