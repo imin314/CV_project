@@ -4,11 +4,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/index.js',
   devServer: {
-      contentBase: './dist'
+      contentBase: './docs'
   },
   output: {
     filename: 'main.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'docs'),
+    publicPath: './'
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -39,8 +40,7 @@ module.exports = {
 		  	use: {
 		    loader: 'file-loader',
 		    options: {
-		    name: "./assets/fonts/[name].[ext]",
-		    publicPath: "../"
+		    name: "./assets/fonts/[name].[ext]"
 		    },
 		  },
 		},
@@ -49,7 +49,7 @@ module.exports = {
 		exclude: [/fonts/],
         loader: 'file-loader',
         options: {
-        	name: './assets/img/[name].[ext]',
+        name: './assets/img/[name].[ext]'
                  },
          }
     ]
