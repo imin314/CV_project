@@ -28,11 +28,35 @@ module.exports = {
         },
         {
             test: /\.styl$/,
-            loader: 'style-loader!css-loader!stylus-loader'
+            use: [
+            	'style-loader',
+            	{ loader: 'css-loader', options: { importLoaders: 1 } },
+            	{
+				      loader: 'postcss-loader',
+				      options: {
+				        ident: 'postcss',
+				        plugins: [
+				          require('autoprefixer')({browsers:['last 2 version']}),
+				          require('postcss-normalize')({browsers:['last 2 version']})]
+				      			}
+				},
+            	'stylus-loader']
         },
         {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader',
+                use: [
+                	'style-loader',
+                	{ loader: 'css-loader', options: { importLoaders: 1 } },
+                	{
+				      loader: 'postcss-loader',
+				      options: {
+				        ident: 'postcss',
+				        plugins: [
+				          require('autoprefixer')({browsers:['last 2 version']}),
+				          require('postcss-normalize')({browsers:['last 2 version']})]
+				      			}
+				}
+					]
         },
         {
   			test: /\.(ttf|svg|eot|woff)$/,
