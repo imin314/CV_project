@@ -4,8 +4,8 @@ mixin contact(content)
 	section.contact
 		.contact__section-header
 			+sectionHeader("contact")
-		table.contact__table
+		.contact__box
 			each val, index in content
-				tr
-					td.contact__cell.contact__cell_color_blue= index
-					td.contact__cell= val
+				.contact__row
+					.contact__item.contact__item_color_blue= index
+					.contact__item= val

@@ -1,9 +1,5 @@
 .circle_size_small
-	width 78px
-	border-width 3.5px
+	width (78px/initial-font-size)rem
+	border-width (3.5px/initial-font-size)rem
 	padding-bottom @width - (2*@border-width)
 	background-repeat no-repeat
-	@media screen and (max-width: 1200px)
-		width 62.4px
-		border-width 2.8px
-		padding-bottom @width - (2*@border-width)
