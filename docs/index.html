@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head></head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="inital-scale=1.0, width=device-width">
-  <title>CV Project</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <meta name="description" content="CV template made with Pug, Stylus, BEM and Webpack">
+    <meta name="keywords" content="HTML, CSS, Pug, Stylus, BEM, Webpack, CV template">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicons/site.webmanifest">
+    <link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+    <title>CV Project</title>
+  </head>
   <body>
-    <div class="container">
+    <main class="container">
       <div class="left-column">
         <div class="left-column__header">
-          <section class="header">
-            <div class="header__circle">
+          <header class="header">
+            <section class="header__circle">
               <div class="circle"></div>
-            </div>
-            <h1 class="header__firstname">name here</h1>
-            <h1 class="header__lastname">surname</h1>
-            <h2 class="header__job-title">graphic designer</h2>
-          </section>
+            </section>
+            <h1 class="header__name">
+              <p class="header__firstname">name here</p>
+              <p class="header__lastname">surname</p>
+            </h1>
+            <p class="header__job-title">graphic designer</p>
+          </header>
         </div>
         <div class="left-column__profile">
           <section class="profile">
@@ -49,15 +61,16 @@
               </div>
               <div class="contact__row">
                 <div class="contact__item contact__item_color_blue">email</div>
-                <div class="contact__item">contact@domain.com</div>
+                <div class="contact__item"><a href="mailto: contact@domain.com">contact@domain.com</a></div>
               </div>
               <div class="contact__row">
                 <div class="contact__item contact__item_color_blue">phone</div>
-                <div class="contact__item">555-555-555</div>
+                <div class="contact__item"><a href="tel: +7555555555">555-555-555</a>
+                </div>
               </div>
               <div class="contact__row">
                 <div class="contact__item contact__item_color_blue">website</div>
-                <div class="contact__item">www.yourweb.com</div>
+                <div class="contact__item"><a href="www.yourweb.com" target="_blank" rel="noopener noreferrer">www.yourweb.com</a></div>
               </div>
             </div>
           </section>
@@ -207,28 +220,28 @@
                 <div class="section-header__line"></div>
               </header>
             </div>
-            <div class="experience__list">
+            <section class="experience__list">
               <ul class="list">
                 <li class="list__item">
-                  <h3 class="list__title">company name</h3>
+                  <h3 class="list__title ">company name</h3>
                   <h3 class="list__date">feb 2011 - jun 2014</h3>
                   <h3 class="list__place">your job here</h3>
                   <p class="list__description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque.</p>
                 </li>
                 <li class="list__item">
-                  <h3 class="list__title">company name</h3>
+                  <h3 class="list__title ">company name</h3>
                   <h3 class="list__date">feb 2011 - jun 2014</h3>
                   <h3 class="list__place">your job here</h3>
                   <p class="list__description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque.</p>
                 </li>
                 <li class="list__item">
-                  <h3 class="list__title">company name</h3>
+                  <h3 class="list__title ">company name</h3>
                   <h3 class="list__date">feb 2011 - jun 2014</h3>
                   <h3 class="list__place">your job here</h3>
                   <p class="list__description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque.</p>
                 </li>
               </ul>
-            </div>
+            </section>
           </section>
         </div>
         <div class="right-column__software">
@@ -295,6 +308,6 @@
           </section>
         </div>
       </div>
-    </div>
+    </main>
   <script type="text/javascript" src="./main.js"></script></body>
 </html>

@@ -2,12 +2,12 @@ include ../section-header/section-header.pug
 include ../progress-bar/progress-bar.pug
 
 mixin software(content)
-	section.software
-		.software__section-header
-			+sectionHeader("software")
-		.software__software-box
-			each val in content.items
-				.software__software-item
-					h3.software__title= val.title
-					.software__progress-bar
-						+progressBar(val.value)
+    section.software
+        .software__section-header
+            +sectionHeader("software")
+        .software__software-box
+            each val in content.items
+                .software__software-item
+                    h3.software__title= val.title
+                    .software__progress-bar
+                        +progressBar(val.value)

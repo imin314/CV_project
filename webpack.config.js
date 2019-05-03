@@ -1,11 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
   devServer: {
       contentBase: path.resolve(__dirname, 'docs'),
-      publicPath: './',
+      publicPath: '/',
       host: 'localhost',
       port: 8080
   },
@@ -13,6 +14,9 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'docs'),
     publicPath: './'
+  },
+  optimization:{
+    minimize: false
   },
   plugins: [
     new HtmlWebpackPlugin({

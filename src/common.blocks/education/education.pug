@@ -2,8 +2,8 @@ include ../section-header/section-header.pug
 include ../list/list.pug
 
 mixin education(content)
-	section.education
-		.education__section-header
-			+sectionHeader("education")
-		.education__list
-			+list(content.items)(class="list__title_color_blue")
+    section.education
+        .education__section-header
+            +sectionHeader("education")
+        .education__list
+            +list(content.items, {titleColor: "blue"})

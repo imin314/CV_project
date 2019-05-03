@@ -1,81 +1,53 @@
 {
-	"header": {
-	"firstName": "name here",
-	"lastName": "surname",
-	"jobTitle": "graphic designer"
-	}
-,
-	"profile": {
-	"text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu <strong>pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.</strong>"
-},
-	"contact": {
-	"address": "Main Street, City",
-	"email": "contact@domain.com",
-	"phone": "555-555-555",
-	"website": "www.yourweb.com"
-	},
-	"skills": {
-	"max": 12,
-      	"items": [
-        {
-          "title": "creative",
-	  "value": "9"
-        },
-        {
-          "title": "teamwork",
-	  "value": "11"
-        },
-	{
-          "title": "innovative",
-	  "value": "6"
-        },
-	{
-          "title": "communication",
-	  "value": "11"
-        }
-      ]
-},
-	"education": {
-"items" :
-	[{"title": "master degree", "start": "feb 2011", "end": "jun 2014", "place": "university name", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
-	{"title": "master degree", "start": "feb 2011", "end": "jun 2014", "place": "university name", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
-	{"title": "master degree", "start": "feb 2011", "end": "jun 2014", "place": "university name", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
-	{"title": "master degree", "start": "feb 2011", "end": "jun 2014", "place": "university name", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."}]
-},
-
-"experience": {
-"items" :
-	[{"title": "company name", "start": "feb 2011", "end": "jun 2014", "place": "your job here", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
-	{"title": "company name", "start": "feb 2011", "end": "jun 2014", "place": "your job here", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
-	{"title": "company name", "start": "feb 2011", "end": "jun 2014", "place": "your job here", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."}]
-},
-
-"software": {
-      	"items": [
-        {
-          "title": "photoshop",
-	  "value": "91.66666667"
-        },
-	{
-          "title": "dreamweaver",
-	  "value": "83.33333333"
-        },
-	{
-          "title": "illustrator",
-	  "value": "71.66666667"
-        },
-	{
-          "title": "after effects",
-	  "value": "61.66666667"
-        },
-	{
-          "title": "indesign",
-	  "value": "56.66666667"
-        },
-	{
-          "title": "html&css3",
-	  "value": "91.66666667"
-        }
-      ]
-}
+    "header": {
+        "firstName": "name here",
+        "lastName": "surname",
+        "jobTitle": "graphic designer"
+    },
+    "profile": {
+        "text": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu <strong>pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.</strong>"
+    },
+    "contact": {
+        "address": "Main Street, City",
+        "email": "contact@domain.com",
+        "phone": "555-555-555",
+        "website": "www.yourweb.com"
+    },
+    "skills": {
+        "max": 12,
+        "items": 
+        [
+            { "title": "creative", "value": "9"},
+            { "title": "teamwork", "value": "11"},
+            { "title": "innovative", "value": "6"},
+            { "title": "communication", "value": "11"}
+        ]
+    },
+    "education": {
+        "items" :
+        [
+            {"title": "master degree", "start": "feb 2011", "end": "jun 2014", "place": "university name", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
+            {"title": "master degree", "start": "feb 2011", "end": "jun 2014", "place": "university name", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
+            {"title": "master degree", "start": "feb 2011", "end": "jun 2014", "place": "university name", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
+            {"title": "master degree", "start": "feb 2011", "end": "jun 2014", "place": "university name", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."}
+        ]
+    },
+    "experience": {
+        "items" :
+        [
+            {"title": "company name", "start": "feb 2011", "end": "jun 2014", "place": "your job here", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
+            {"title": "company name", "start": "feb 2011", "end": "jun 2014", "place": "your job here", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."},
+            {"title": "company name", "start": "feb 2011", "end": "jun 2014", "place": "your job here", "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque."}
+        ]
+    },
+    "software": {
+        "items": [
+            { "title": "photoshop", "value": "91.66666667" },
+            { "title": "dreamweaver", "value": "83.33333333" },
+            { "title": "illustrator", "value": "71.66666667" },
+            { "title": "after effects", "value": "61.66666667" },
+            { "title": "indesign", "value": "56.66666667" },
+            { "title": "html&css3", "value": "91.66666667" }
+        ]
+    }
 }

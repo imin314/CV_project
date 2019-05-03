@@ -2,12 +2,12 @@ include ../section-header/section-header.pug
 include ../dot-progress-bar/dot-progress-bar.pug
 
 mixin skills(content)
-	section.skills
-		.skills__section-header
-			+sectionHeader("skills")
-		.skills__skill-box
-			each val in content.items
-				.skills__skill-item
-					h3.skills__title= val.title
-					.skills__dot-progress-bar
-						+dotProgressBar(content.max, val.value)
+    section.skills
+        .skills__section-header
+            +sectionHeader("skills")
+        .skills__skill-box
+            each val in content.items
+                .skills__skill-item
+                    h3.skills__title= val.title
+                    .skills__dot-progress-bar
+                        +dotProgressBar(content.max, val.value)

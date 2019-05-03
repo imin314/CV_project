@@ -1,7 +1,8 @@
 mixin header(content)
-	section.header
-		.header__circle
-			.circle
-		h1.header__firstname= content.firstName
-		h1.header__lastname= content.lastName
-		h2.header__job-title= content.jobTitle
+    header.header
+        section.header__circle
+            .circle
+        h1.header__name
+            p.header__firstname= content.firstName
+            p.header__lastname= content.lastName
+        p.header__job-title= content.jobTitle

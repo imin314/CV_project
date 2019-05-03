@@ -2,8 +2,8 @@ include ../section-header/section-header.pug
 include ../list/list.pug
 
 mixin experience(content)
-	section.experience
-		.experience__section-header
-			+sectionHeader("experience")
-		.experience__list
-			+list(content.items)
+    section.experience
+        .experience__section-header
+            +sectionHeader("experience")
+        section.experience__list
+            +list(content.items)

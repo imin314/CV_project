@@ -1,8 +1,9 @@
-mixin list(data)
-	ul.list
-		each val in data
-			li.list__item
-				h3.list__title&attributes(attributes)= val.title
-				h3.list__date= val.start + " - " + val.end
-				h3.list__place= val.place
-				p.list__description= val.description
+mixin list(data, settings)
+    - var listClass = settings && settings.titleColor ? "list__title_color_" + settings.titleColor : "";
+    ul.list
+        each val in data
+            li.list__item
+                h3(class="list__title " + listClass)= val.title
+                h3.list__date= val.start + " - " + val.end
+                h3.list__place= val.place
+                p.list__description= val.description
