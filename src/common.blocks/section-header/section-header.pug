@@ -1,8 +1,10 @@
+include ../circle/circle.pug
+
 mixin sectionHeader(header)
-    - var image = require("./assets/img/"+ header + "-icon.svg")
+    - var image = require('./assets/img/'+ header + '-icon.svg')
 
     header.section-header
         .section-header__circle
-            .circle.circle_size_small(style='background-image: url('+ image +')')
+            +circle({size: 'small', image: image})
         h2.section-header__title= header
         .section-header__line

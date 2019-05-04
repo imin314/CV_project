@@ -1,7 +1,9 @@
+include ../circle/circle.pug
+
 mixin header(content)
     header.header
         section.header__circle
-            .circle
+            +circle()
         h1.header__name
             p.header__firstname= content.firstName
             p.header__lastname= content.lastName
