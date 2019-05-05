@@ -1,5 +1,34 @@
-@import 'contact__box.styl'
-@import 'contact__row.styl'
-@import 'contact__item.styl'
-@import 'contact__item_color_blue.styl'
-@import 'contact__section-header.styl'
+.contact__section-header
+  margin-top 1.191185229rem
+
+.contact__box
+  display table
+
+.contact__row
+  display table-row
+
+.contact__row:first-child .contact__item
+  padding-top 1.7rem
+
+.contact__item
+  display table-cell
+  padding-top 2.1rem
+  font-size 1.429422275rem
+  line-height @font-size
+  word-break break-word    
+
+.contact__item_color_blue
+  width 8.5rem
+  padding-right 2.4rem
+  color color-main
+  font-weight bold
+  text-transform uppercase
+
+.contact__item a
+  color text-color
+  text-decoration none
+  &:hover, &:active
+    color color-main
+  &:visited
+    color text-color
+    
