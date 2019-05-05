@@ -1,9 +1,21 @@
-@import 'section-header__circle.styl'
-@import 'section-header__title.styl'
-@import 'section-header__line.styl'
-
 .section-header
   display flex
   flex-direction row
   align-items center
   align-content space-between
+
+.section-header__circle
+  flex-grow 0
+
+.section-header__line
+  height 0.357355569rem
+  flex-basis 0px
+  flex-grow 1
+  background-color color-main
+
+.section-header__title
+  margin-left 0.7rem
+  margin-right 0.5rem
+  color color-main
+  text-transform uppercase
+  letter-spacing 0.1rem
