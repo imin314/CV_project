@@ -4,7 +4,7 @@ include ../progress-bar/progress-bar.pug
 mixin software(content)
     section.software
         .software__section-header
-            +sectionHeader("software")
+            +sectionHeader("software", true)
         .software__software-box
             each val in content.items
                 .software__software-item

@@ -1,4 +1,21 @@
-@import 'software__section-header.styl'
-@import 'software__software-box.styl'
-@import 'software__title.styl'
-@import 'software__software-item.styl'
+.software__section-header
+  margin-top 1.5rem
+
+.software__software-box
+  display flex
+  flex-direction row
+  flex-wrap wrap
+  justify-content space-between
+  width 98.6%
+  margin 0 auto
+
+.software__title
+  text-transform uppercase
+  margin-bottom 0.8rem
+
+.software__software-item
+  margin-top 1.7rem
+  width 44%
+  @media screen and (max-width: screen-sm)
+    width 100%
+

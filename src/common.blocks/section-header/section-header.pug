@@ -1,10 +1,11 @@
 include ../circle/circle.pug
 
-mixin sectionHeader(header)
-    - var image = require('./assets/img/'+ header + '-icon.svg')
-
+mixin sectionHeader(name, isDistant)
+    - var image = require('./assets/img/'+ name + '-icon.svg');
+    - var titleClass = 'section-header__title';
+    - titleClass = isDistant ? titleClass + ' section-header__title_distant' : titleClass;
     header.section-header
         .section-header__circle
             +circle({size: 'small', image: image})
-        h2.section-header__title= header
+        h2(class=titleClass)= name
         .section-header__line

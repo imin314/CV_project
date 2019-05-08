@@ -4,6 +4,6 @@ include ../list/list.pug
 mixin education(content)
     section.education
         .education__section-header
-            +sectionHeader("education")
+            +sectionHeader("education", true)
         .education__list
             +list(content.items, {titleColor: "blue"})
