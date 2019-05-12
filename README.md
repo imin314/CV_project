@@ -1,4 +1,16 @@
-# CV_project
-CV web page made with Pug, Stylus, Webpack
+# CV project
+Шаблон резюме, написанный с использованием *Pug*, *Stylus* и *Webpack*.
 
-The project is published on https://imin314.github.io/CV_project/
+## Установка и запуск
+Для установки и запуска проекта требуется Node.js.  
+Из корневой папки скачанного проекта запустите следующую команду:
+```
+npm install
+```
+Запуск осуществляется с помощью команды:
+```
+npm start
+```
+
+## GitHub Pages
+https://imin314.github.io/CV_project/ 
