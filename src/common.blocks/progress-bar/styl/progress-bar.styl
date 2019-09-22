@@ -1,7 +1,12 @@
-@import 'progress-bar__inner.styl'
-
 .progress-bar
-  height 1.488981537rem
-  background-color color-light
   position relative
+  height 1.488981537rem
   width 100%
+  background-color color-light
+
+  &__inner
+    height inherit
+    position absolute
+    top 0
+    left 0
+    background-color color-main

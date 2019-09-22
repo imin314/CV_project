@@ -11,14 +11,14 @@ mixin contact(content)
             .contact__row
                 .contact__item.contact__item_color_blue e-mail
                 .contact__item
-                    a(href="mailto: " + content.email)= content.email
+                    a.contact__link(href="mailto: " + content.email)= content.email
             .contact__row
                 .contact__item.contact__item_color_blue phone
                 .contact__item
                     - var phone = content.phone.replace(/\(0\)|\s+|-/g,'');
-                    a(href="tel: +7" + phone)= content.phone
+                    a.contact__link(href="tel: +7" + phone)= content.phone
             .contact__row
                 .contact__item.contact__item_color_blue website
                 .contact__item
-                    a(href=content.website target="_blank" rel="noopener noreferrer")= content.website
+                    a.contact__link(href=content.website target="_blank" rel="noopener noreferrer")= content.website
             

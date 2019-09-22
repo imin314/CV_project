@@ -1,34 +1,35 @@
-.contact__section-header
-  margin-top 1.191185229rem
+.contact
+  &__section-header
+    margin-top 1.191185229rem
 
-.contact__box
-  display table
+  &__box
+    display table
 
-.contact__row
-  display table-row
+  &__row
+    display table-row
 
-.contact__row:first-child .contact__item
-  padding-top 1.9rem
+  &__item
+    display table-cell
+    padding-top 2.1rem
+    font-size 1.429422275rem
+    line-height @font-size
+    word-break break-word
 
-.contact__item
-  display table-cell
-  padding-top 2.1rem
-  font-size 1.429422275rem
-  line-height @font-size
-  word-break break-word    
+    ~/__row:first-child &
+      padding-top 1.9rem
 
-.contact__item_color_blue
-  width 8.5rem
-  padding-right 2.4rem
-  color color-main
-  font-weight bold
-  text-transform uppercase
+    &_color_blue
+      width 8.5rem
+      padding-right 2.4rem
+      color color-main
+      font-weight bold
+      text-transform uppercase
 
-.contact__item a
-  color text-color
-  text-decoration none
-  &:hover, &:active
-    color color-main
-  &:visited
+  &__link
     color text-color
-    
+    text-decoration none
+    &:hover, &:active
+      color color-main
+    &:visited
+      color text-color
+      

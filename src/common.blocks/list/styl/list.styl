@@ -2,62 +2,59 @@
   margin 0
   padding 0
 
-.list__item
-  list-style none
-  position relative
-  margin-left 3.275759381rem
-  margin-bottom 1.1rem
-  &:last-child
-    margin-bottom 0
+  &__item
+    list-style none
+    position relative
+    margin-left 3.275759381rem
+    margin-bottom 1.1rem
+    &:last-child
+      margin-bottom 0
+    &::before
+      content ''
+      position absolute
+      top 0.22rem
+      left -2.620607504rem
+      width 1.295413937rem
+      height @width
+      margin-right 5px
+      border-radius 50%
+      background-color text-color
 
-.list__item::before
-  content ''
-  position absolute
-  top 0.22rem
-  left -2.620607504rem
-  width 1.295413937rem
-  height @width
-  margin-right 5px
-  border-radius 50%
-  background-color text-color
+  &__title
+    display inline
+    text-transform uppercase
+    font-size 1.65rem
+    font-weight bold
+    letter-spacing 0.05rem
+    word-spacing -0.2rem
+    &_color_blue
+      color color-main
 
-.list__title
-  display inline
-  text-transform uppercase
-  font-size 1.65rem
-  font-weight bold
-  letter-spacing 0.05rem
-  word-spacing -0.2rem
+  &__date
+    display inline
+    text-transform capitalize
+    font-size 1.65rem
+    font-weight normal
+    white-space nowrap
+    letter-spacing -0.03rem
+    &::before
+      content '// '
+      display inherit
+      padding-left 0.7rem
+      text-transform inherit
+      font-weight inherit
+      white-space inherit
+      @media screen and (max-width: screen-sm)
+        content ''
+        display block
+        padding-left 0
 
-.list__title_color_blue
-  color color-main
+  &__place
+    margin-top 0.4rem
+    text-transform uppercase
+    font-size 1.65rem
+    font-weight normal
+    letter-spacing -0.045rem
 
-.list__date
-  display inline
-  text-transform capitalize
-  font-size 1.65rem
-  font-weight normal
-  white-space nowrap
-  letter-spacing -0.03rem
-
-.list__date::before
-  content '// '
-  display inherit
-  padding-left 0.7rem
-  text-transform inherit
-  font-weight inherit
-  white-space inherit
-  @media screen and (max-width: screen-sm)
-    content ''
-    display block
-    padding-left 0
-
-.list__place
-  margin-top 0.4rem
-  text-transform uppercase
-  font-size 1.65rem
-  font-weight normal
-  letter-spacing -0.045rem
-
-.list__description
-  margin-top 0.6rem
+  &__description
+    margin-top 0.6rem
