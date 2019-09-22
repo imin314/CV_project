@@ -1,12 +1,5 @@
-include common.blocks/header/header.pug
-include common.blocks/profile/profile.pug
-include common.blocks/contact/contact.pug
-include common.blocks/skills/skills.pug
-include common.blocks/education/education.pug
-include common.blocks/experience/experience.pug
-include common.blocks/software/software.pug
-
-- var data = require('./assets/data/data.json')
+include common.blocks/container/container.pug
+- const data = require('./assets/data/data.json')
 
 doctype html
 html
@@ -23,20 +16,5 @@ html
         meta(name="theme-color" content="#ffffff")
         title CV Project
     body
-        main.container
-            .container__left-column
-                .container__header
-                    +header(data.header)
-                .container__profile
-                    +profile(data.profile)
-                .container__contact
-                    +contact(data.contact)
-                .container__skills
-                    +skills(data.skills)
-            .container__right-column
-                .container__education
-                    +education(data.education)
-                .container__experience
-                    +experience(data.experience)
-                .container__software
-                    +software(data.software)
+        main.page-container
+            +container(data)

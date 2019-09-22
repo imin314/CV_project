@@ -1,0 +1,26 @@
+include ../header/header.pug
+include ../profile/profile.pug
+include ../contact/contact.pug
+include ../skills/skills.pug
+include ../education/education.pug
+include ../experience/experience.pug
+include ../software/software.pug
+
+mixin container(data)
+    .container
+        .container__left-column
+            .container__header
+                +header(data.header)
+            .container__profile
+                +profile(data.profile)
+            .container__contact
+                +contact(data.contact)
+            .container__skills
+                +skills(data.skills)
+        .container__right-column
+            .container__education
+                +education(data.education)
+            .container__experience
+                +experience(data.experience)
+            .container__software
+                +software(data.software)
