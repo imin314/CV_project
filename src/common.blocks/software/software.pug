@@ -7,7 +7,8 @@ mixin software(content)
             +sectionHeader("software", true)
         .software__software-box
             each val in content.items
+                - const { title, value } = val;
                 .software__software-item
-                    h3.software__title= val.title
+                    h3.software__title= title
                     .software__progress-bar
-                        +progressBar(val.value)
+                        +progressBar(value)

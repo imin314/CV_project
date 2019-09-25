@@ -2,8 +2,9 @@ include ../section-header/section-header.pug
 include ../list/list.pug
 
 mixin experience(content)
+    - const { items } = content;
     section.experience
         .experience__section-header
             +sectionHeader("experience", true)
         section.experience__list
-            +list(content.items)
+            +list(items)

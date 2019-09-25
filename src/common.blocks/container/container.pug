@@ -7,20 +7,21 @@ include ../experience/experience.pug
 include ../software/software.pug
 
 mixin container(data)
+    - const { header, profile, contact, skills, education, experience, software } = data;
     .container
         .container__left-column
             .container__header
-                +header(data.header)
+                +header(header)
             .container__profile
-                +profile(data.profile)
+                +profile(profile)
             .container__contact
-                +contact(data.contact)
+                +contact(contact)
             .container__skills
-                +skills(data.skills)
+                +skills(skills)
         .container__right-column
             .container__education
-                +education(data.education)
+                +education(education)
             .container__experience
-                +experience(data.experience)
+                +experience(experience)
             .container__software
-                +software(data.software)
+                +software(software)

@@ -2,8 +2,9 @@ include ../section-header/section-header.pug
 include ../list/list.pug
 
 mixin education(content)
+    - const { items } = content;
     section.education
         .education__section-header
             +sectionHeader("education", true)
         .education__list
-            +list(content.items, {titleColor: "blue"})
+            +list(items, {titleColor: "blue"})

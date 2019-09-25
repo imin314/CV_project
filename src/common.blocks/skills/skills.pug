@@ -7,7 +7,8 @@ mixin skills(content)
             +sectionHeader("skills")
         .skills__skill-box
             each val in content.items
+                - const { title, value } = val;
                 .skills__skill-item
-                    h3.skills__title= val.title
+                    h3.skills__title= title
                     .skills__dot-progress-bar
-                        +dotProgressBar(content.max, val.value)
+                        +dotProgressBar(content.max, value)
