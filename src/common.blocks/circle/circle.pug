@@ -1,7 +1,8 @@
 mixin circle(settings)
     - const bgImg = (settings && settings.image) ? `background-image: url(${settings.image})`:'';
+    - const modificators = { size: 'small' };
     - let className = 'circle';
-    - if (settings && settings.size) {
-    -   className = `${className} ${className}_${settings.size}`;
+    - for (let key in settings) {
+    -   if (key in modificators) className += ` circle_${modificators[key]}`;
     - }
     div(class=className style=bgImg)
