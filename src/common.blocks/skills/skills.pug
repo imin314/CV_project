@@ -1,5 +1,5 @@
 include ../section-header/section-header.pug
-include ../dot-progress-bar/dot-progress-bar.pug
+include ../discrete-progress-bar/discrete-progress-bar.pug
 
 mixin skills(content)
     section.skills
@@ -10,5 +10,5 @@ mixin skills(content)
                 - const { title, value } = val;
                 .skills__skill-item
                     h3.skills__title= title
-                    .skills__dot-progress-bar
-                        +dotProgressBar(content.max, value)
+                    .skills__discrete-progress-bar
+                        +discreteProgressBar(content.max, value)
