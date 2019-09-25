@@ -23,6 +23,13 @@ module.exports = {
       filename: 'index.html',
       template: './src/index.pug',
     }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        stylus: {
+          import: [path.resolve(__dirname, './src/styl/variables.styl')],
+        },
+      },
+    }),
   ],
   module: {
     rules:
@@ -37,7 +44,7 @@ module.exports = {
         {
           test: /\.styl$/,
           use: [
-            'style-loader',
+            { loader: 'style-loader', options: { injectType: 'singletonStyleTag', insert: 'head' } },
             { loader: 'css-loader', options: { importLoaders: 1 } },
             {
               loader: 'postcss-loader',

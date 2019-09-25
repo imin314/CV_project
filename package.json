@@ -22,7 +22,7 @@
     "postcss-normalize": "^6.0.0",
     "pug": "^2.0.3",
     "pug-loader": "^2.4.0",
-    "style-loader": "^0.21.0",
+    "style-loader": "^1.0.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "webpack": "^4.2.0",
