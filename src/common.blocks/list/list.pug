@@ -1,10 +1,13 @@
 mixin list(data, settings)
-    - var listClass = settings && settings.titleColor ? "list__title_color_" + settings.titleColor : "";
+    - let titleClass = 'list__title';
+    - if (settings && settings.titleColor) {
+    -   titleClass = `${titleClass} ${titleClass}_color_${settings.titleColor}`;  
+    - }
     ul.list
         each val in data
             li.list__item
                 - const { title, start, end, place, description } = val;
-                h3(class="list__title " + listClass)= title
+                h3(class = titleClass)= title
                 h3.list__date= start + " - " + end
                 h3.list__place= place
                 p.list__description= description

@@ -1,5 +1,7 @@
 mixin circle(settings)
-    - var sizeClass = (settings && settings.size) ? 'circle_' + settings.size : '';
-    - var bgImg = (settings && settings.image) ? 'background-image: url('+ settings.image +')':'';
-    - var className = 'circle ' + sizeClass;
+    - const bgImg = (settings && settings.image) ? `background-image: url(${settings.image})`:'';
+    - let className = 'circle';
+    - if (settings && settings.size) {
+    -   className = `${className} ${className}_${settings.size}`;
+    - }
     div(class=className style=bgImg)
