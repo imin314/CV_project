@@ -1059,7 +1059,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, ".circle {\n  display: inline-block;\n  width: 14.88981537rem;\n  height: 0;\n  border-width: 0.893388922rem;\n  padding-bottom: 13.103037526000001rem;\n  background-color: #3d6cb0;\n  border-color: #fff;\n  border-style: solid;\n  border-radius: 50%;\n  -webkit-box-shadow: 0 0 0 2px #3d6cb0;\n          box-shadow: 0 0 0 2px #3d6cb0;\n}\n.circle_small {\n  width: 4.645622394rem;\n  border-width: 0.208457415rem;\n  padding-bottom: 4.228707564rem;\n  background-repeat: no-repeat;\n}\n", ""]);
+exports.push([module.i, ".circle {\n  display: inline-block;\n  width: 14.88981537rem;\n  height: 0;\n  border-width: 0.893388922rem;\n  padding-bottom: 13.103037526000001rem;\n  background-color: #3d6cb0;\n  border-color: #fff;\n  border-style: solid;\n  border-radius: 50%;\n  -webkit-box-shadow: 0 0 0 2px #3d6cb0;\n          box-shadow: 0 0 0 2px #3d6cb0;\n}\n.circle_size_small {\n  width: 4.645622394rem;\n  border-width: 0.208457415rem;\n  padding-bottom: 4.228707564rem;\n  background-repeat: no-repeat;\n}\n", ""]);
 
 // exports
 
