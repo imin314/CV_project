@@ -1,0 +1,31 @@
+extends ../../pug/layout.pug
+
+include ../../common.blocks/header/header.pug
+include ../../common.blocks/profile/profile.pug
+include ../../common.blocks/contact/contact.pug
+include ../../common.blocks/skills/skills.pug
+include ../../common.blocks/education/education.pug
+include ../../common.blocks/experience/experience.pug
+include ../../common.blocks/software/software.pug
+
+block content
+    - const data = require('../../assets/data/data.json');
+    - const { header, profile, contact, skills, education, experience, software } = data;
+    main.index
+        .index__content
+            .index__left-column
+                .index__header
+                    +header(header)
+                .index__profile
+                    +profile(profile)
+                .index__contact
+                    +contact(contact)
+                .index__skills
+                    +skills(skills)
+            .index__right-column
+                .index__education
+                    +education(education)
+                .index__experience
+                    +experience(experience)
+                .index__software
+                    +software(software)

@@ -1,27 +1,4 @@
-include ../header/header.pug
-include ../profile/profile.pug
-include ../contact/contact.pug
-include ../skills/skills.pug
-include ../education/education.pug
-include ../experience/experience.pug
-include ../software/software.pug
+
 
 mixin container(data)
-    - const { header, profile, contact, skills, education, experience, software } = data;
-    .container
-        .container__left-column
-            .container__header
-                +header(header)
-            .container__profile
-                +profile(profile)
-            .container__contact
-                +contact(contact)
-            .container__skills
-                +skills(skills)
-        .container__right-column
-            .container__education
-                +education(education)
-            .container__experience
-                +experience(experience)
-            .container__software
-                +software(software)
+    
