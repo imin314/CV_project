@@ -2,10 +2,13 @@ include ../circle/circle.pug
 
 mixin sectionHeader(name, isDistant)
     - const image = require(`../../assets/img/${name}-icon.svg`);
+    - const titleModifiers = { distant: 'section-header__title_distant' };
     - let titleClass = 'section-header__title';
-    - titleClass = isDistant ? `${titleClass} ${titleClass}_distant` : titleClass;
+    - if (isDistant) {
+    -   titleClass += ` ${titleModifiers.distant}`;
+    - }
     header.section-header
         .section-header__circle
-            +circle({size: 'small', image: image})
+            +circle({ size: 'small', image: image })
         h2(class = titleClass)= name
         .section-header__line

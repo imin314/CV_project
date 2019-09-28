@@ -1,7 +1,10 @@
 mixin list(data, settings)
+    - const options = settings || {};
+    - const { titleColor } = options;
+    - const titleColorModifiers = { blue: 'list__title_color_blue' };
     - let titleClass = 'list__title';
-    - if (settings && settings.titleColor) {
-    -   titleClass = `${titleClass} ${titleClass}_color_${settings.titleColor}`;  
+    - if (titleColor in titleColorModifiers) {
+    -   titleClass += ` ${titleColorModifiers[titleColor]}`;  
     - }
     ul.list
         each val in data
