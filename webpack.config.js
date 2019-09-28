@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/main.js',
   devServer: {
     contentBase: path.resolve(__dirname, 'docs'),
     publicPath: '/',
@@ -21,7 +21,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './src/index.pug',
+      template: './src/pages/index/index.pug',
     }),
     new webpack.LoaderOptionsPlugin({
       options: {
