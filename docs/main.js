@@ -479,49 +479,49 @@ if (content.locals) {
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + ".assets/fonts/pt-sans-bold.svg";
+module.exports = __webpack_require__.p + "assets/fonts/pt-sans-bold.svg";
 
 /***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + ".assets/fonts/pt-sans-bold.ttf";
+module.exports = __webpack_require__.p + "assets/fonts/pt-sans-bold.ttf";
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + ".assets/fonts/pt-sans-bold.woff";
+module.exports = __webpack_require__.p + "assets/fonts/pt-sans-bold.woff";
 
 /***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + ".assets/fonts/pt-sans-bold.eot";
+module.exports = __webpack_require__.p + "assets/fonts/pt-sans-bold.eot";
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + ".assets/fonts/pt-sans.svg";
+module.exports = __webpack_require__.p + "assets/fonts/pt-sans.svg";
 
 /***/ }),
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + ".assets/fonts/pt-sans.ttf";
+module.exports = __webpack_require__.p + "assets/fonts/pt-sans.ttf";
 
 /***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + ".assets/fonts/pt-sans.woff";
+module.exports = __webpack_require__.p + "assets/fonts/pt-sans.woff";
 
 /***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + ".assets/fonts/pt-sans.eot";
+module.exports = __webpack_require__.p + "assets/fonts/pt-sans.eot";
 
 /***/ }),
 /* 12 */
