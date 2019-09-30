@@ -5,6 +5,6 @@ mixin education(content)
     - const { items } = content;
     section.education
         .education__section-header
-            +sectionHeader("education", true)
+            +sectionHeader({ title: 'education', isDistant: true })
         .education__list
             +list(items, {titleColor: "blue"})

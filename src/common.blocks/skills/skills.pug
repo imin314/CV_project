@@ -2,13 +2,14 @@ include ../section-header/section-header.pug
 include ../discrete-progress-bar/discrete-progress-bar.pug
 
 mixin skills(content)
+    - const { max } = content;
     section.skills
         .skills__section-header
-            +sectionHeader("skills")
+            +sectionHeader({ title: 'skills' })
         .skills__skill-box
             each val in content.items
                 - const { title, value } = val;
                 .skills__skill-item
                     h3.skills__title= title
                     .skills__discrete-progress-bar
-                        +discreteProgressBar(content.max, value)
+                        +discreteProgressBar({ max, value })

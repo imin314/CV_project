@@ -5,6 +5,6 @@ mixin experience(content)
     - const { items } = content;
     section.experience
         .experience__section-header
-            +sectionHeader("experience", true)
+            +sectionHeader({ title: 'experience', isDistant: true })
         section.experience__list
             +list(items)

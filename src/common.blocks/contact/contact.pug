@@ -5,7 +5,7 @@ mixin contact(content)
     - const phoneNumber = phone.replace(/\(0\)|\s+|-/g,'');
     section.contact
         .contact__section-header
-            +sectionHeader("contact")
+            +sectionHeader({ title: 'contact' })
         .contact__box
             .contact__row
                 .contact__item.contact__item_color_blue address

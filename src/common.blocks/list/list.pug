@@ -11,6 +11,6 @@ mixin list(data, settings)
             li.list__item
                 - const { title, start, end, place, description } = val;
                 h3(class = titleClass)= title
-                h3.list__date= start + " - " + end
+                h3.list__date= `${start} - ${end}`
                 h3.list__place= place
                 p.list__description= description

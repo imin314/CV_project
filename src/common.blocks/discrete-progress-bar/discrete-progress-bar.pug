@@ -1,4 +1,5 @@
-mixin discreteProgressBar(max, value)
+mixin discreteProgressBar(settings)
+    - const { max = 12, value = 5 } = settings
     .discrete-progress-bar
         - for (var i = 0; i < value; i++)
             .discrete-progress-bar__item.discrete-progress-bar__item_filled

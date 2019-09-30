@@ -4,5 +4,5 @@ mixin profile(content)
     - const { text } = content;
     section.profile
         .profile__section-header
-            +sectionHeader("profile")
+            +sectionHeader({ title: 'profile' })
         p.profile__text!= text
