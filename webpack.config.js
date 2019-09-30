@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/main.js',
   devServer: {
     contentBase: path.resolve(__dirname, 'docs'),
-    publicPath: '/',
+    publicPath: './',
     host: 'localhost',
     port: 8080,
   },
@@ -28,6 +28,7 @@ module.exports = {
         stylus: {
           import: [path.resolve(__dirname, './src/styl/variables.styl')],
         },
+        preferPathResolver: 'webpack',
       },
     }),
   ],
@@ -44,7 +45,7 @@ module.exports = {
         {
           test: /\.styl$/,
           use: [
-            { loader: 'style-loader', options: { injectType: 'singletonStyleTag', insert: 'head' } },
+            { loader: 'style-loader', options: { injectType: 'singletonStyleTag' } },
             { loader: 'css-loader', options: { importLoaders: 1 } },
             {
               loader: 'postcss-loader',
@@ -78,19 +79,25 @@ module.exports = {
 					  ],
         },
         {
-          test: /\.(ttf|svg|eot|woff)$/,
-          exclude: [/img/],
-          use: {
-            loader: 'file-loader',
-            options: { name: './assets/fonts/[name].[ext]' },
-		      },
-		    },
-		    {
           test: /\.(jpg|png|svg)$/,
           exclude: [/fonts/],
           loader: 'file-loader',
-          options: { name: './assets/img/[name].[ext]' },
+          options: {
+            name: '[name].[ext]',
+            outputPath: './assets/img',
+          },
         },
+        {
+          test: /\.(ttf|svg|eot|woff)$/,
+          exclude:[/img/],
+          use: {
+            loader: 'file-loader',
+            options: { 
+              name: '[name].[ext]',
+              outputPath: './assets/fonts',
+            },
+		      },
+		    },
       ],
   },
 };
