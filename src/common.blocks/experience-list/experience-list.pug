@@ -1,0 +1,16 @@
+mixin experienceList(data, settings)
+    - const options = settings || {};
+    - const { titleColor } = options;
+    - const titleColorModifiers = { blue: 'experience-list__title_color_blue' };
+    - let titleClass = 'experience-list__title';
+    - if (titleColor in titleColorModifiers) {
+    -   titleClass += ` ${titleColorModifiers[titleColor]}`;  
+    - }
+    ul.experience-list
+        each val in data
+            li.experience-list__item
+                - const { title, start, end, place, description } = val;
+                h3(class = titleClass)= title
+                h3.experience-list__date= `${start} - ${end}`
+                h3.experience-list__place= place
+                p.experience-list__description= description
