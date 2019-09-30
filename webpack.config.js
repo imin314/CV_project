@@ -24,7 +24,7 @@ module.exports = {
     new webpack.LoaderOptionsPlugin({
       options: {
         stylus: {
-          import: [path.resolve(__dirname, './src/styl/variables.styl')],
+          import: [path.resolve(__dirname, './src/styles/variables.styl')],
         },
         preferPathResolver: 'webpack',
       },
