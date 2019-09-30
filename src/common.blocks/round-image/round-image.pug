@@ -1,9 +1,9 @@
-mixin circle(settings)
+mixin roundImage(settings)
     - const options = settings || {};
     - const { image, size } = options;
     - const bgImg = image ? `background-image: url(${image})` : '';
-    - const sizeModifiers = { small: 'circle_size_small' };
-    - let className = 'circle';
+    - const sizeModifiers = { small: 'round-image_size_small' };
+    - let className = 'round-image';
     - if (size in sizeModifiers) {
     -   className += ` ${sizeModifiers[size]}`;
     - }

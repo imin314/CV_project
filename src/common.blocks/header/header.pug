@@ -1,10 +1,10 @@
-include ../circle/circle.pug
+include ../round-image/round-image.pug
 
 mixin header(content)
     - const { firstName, lastName, jobTitle } = content;
     header.header
-        section.header__circle
-            +circle()
+        section.header__photo
+            +roundImage()
         h1.header__name
             p.header__firstname= firstName
             p.header__lastname= lastName

@@ -1,4 +1,4 @@
-include ../circle/circle.pug
+include ../round-image/round-image.pug
 
 mixin sectionHeader(settings)
     - const { title='', isDistant=false } = settings;
@@ -9,7 +9,7 @@ mixin sectionHeader(settings)
     -   titleClass += ` ${titleModifiers.distant}`;
     - }
     header.section-header
-        .section-header__circle
-            +circle({ size: 'small', image: image })
+        .section-header__icon
+            +roundImage({ size: 'small', image: image })
         h2(class = titleClass)= title
         .section-header__line
