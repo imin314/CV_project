@@ -1,8 +1,0 @@
-include ../section-header/section-header.pug
-
-mixin profile(content)
-    - const { text } = content;
-    section.profile
-        .profile__section-header
-            +sectionHeader({ title: 'profile' })
-        p.profile__text!= text
