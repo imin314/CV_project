@@ -21,14 +21,6 @@ module.exports = {
       filename: 'index.html',
       template: './src/pages/index/index.pug',
     }),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        stylus: {
-          import: [path.resolve(__dirname, './src/styles/variables.styl')],
-        },
-        preferPathResolver: 'webpack',
-      },
-    }),
   ],
   module: {
     rules:
