@@ -36,17 +36,32 @@
 /******/ 	// define getter function for harmony exports
 /******/ 	__webpack_require__.d = function(exports, name, getter) {
 /******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
 /******/ 		}
 /******/ 	};
 /******/
 /******/ 	// define __esModule on exports
 /******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
 /******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
@@ -66,11 +81,107 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 55);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/*
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+// eslint-disable-next-line func-names
+module.exports = function (useSourceMap) {
+  var list = []; // return the list of modules as css string
+
+  list.toString = function toString() {
+    return this.map(function (item) {
+      var content = cssWithMappingToString(item, useSourceMap);
+
+      if (item[2]) {
+        return "@media ".concat(item[2], "{").concat(content, "}");
+      }
+
+      return content;
+    }).join('');
+  }; // import a list of modules into the list
+  // eslint-disable-next-line func-names
+
+
+  list.i = function (modules, mediaQuery) {
+    if (typeof modules === 'string') {
+      // eslint-disable-next-line no-param-reassign
+      modules = [[null, modules, '']];
+    }
+
+    var alreadyImportedModules = {};
+
+    for (var i = 0; i < this.length; i++) {
+      // eslint-disable-next-line prefer-destructuring
+      var id = this[i][0];
+
+      if (id != null) {
+        alreadyImportedModules[id] = true;
+      }
+    }
+
+    for (var _i = 0; _i < modules.length; _i++) {
+      var item = modules[_i]; // skip already imported module
+      // this implementation is not 100% perfect for weird media query combinations
+      // when a module is imported multiple times with different media queries.
+      // I hope this will never occur (Hey this way we have smaller bundles)
+
+      if (item[0] == null || !alreadyImportedModules[item[0]]) {
+        if (mediaQuery && !item[2]) {
+          item[2] = mediaQuery;
+        } else if (mediaQuery) {
+          item[2] = "(".concat(item[2], ") and (").concat(mediaQuery, ")");
+        }
+
+        list.push(item);
+      }
+    }
+  };
+
+  return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+  var content = item[1] || ''; // eslint-disable-next-line prefer-destructuring
+
+  var cssMapping = item[3];
+
+  if (!cssMapping) {
+    return content;
+  }
+
+  if (useSourceMap && typeof btoa === 'function') {
+    var sourceMapping = toComment(cssMapping);
+    var sourceURLs = cssMapping.sources.map(function (source) {
+      return "/*# sourceURL=".concat(cssMapping.sourceRoot).concat(source, " */");
+    });
+    return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+  }
+
+  return [content].join('\n');
+} // Adapted from convert-source-map (MIT)
+
+
+function toComment(sourceMap) {
+  // eslint-disable-next-line no-undef
+  var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+  var data = "sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(base64);
+  return "/*# ".concat(data, " */");
+}
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -358,106 +469,63 @@ module.exports = function (list, options) {
 };
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
-// imports
+function importAll(r) {
+  r.keys().forEach(r);
+}
 
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
+importAll(__webpack_require__(3));
 
 
 /***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var content = __webpack_require__(2);
+var map = {
+	"./common.blocks/contact/styl/contact.styl": 4,
+	"./common.blocks/discrete-progress-bar/styl/discrete-progress-bar.styl": 6,
+	"./common.blocks/education/styl/education.styl": 8,
+	"./common.blocks/experience-list/styl/experience-list.styl": 10,
+	"./common.blocks/experience/styl/experience.styl": 12,
+	"./common.blocks/header/styl/header.styl": 14,
+	"./common.blocks/profile/styl/profile.styl": 16,
+	"./common.blocks/progress-bar/styl/progress-bar.styl": 18,
+	"./common.blocks/section-header/styl/section-header.styl": 20,
+	"./common.blocks/skills/styl/skills.styl": 22,
+	"./common.blocks/software/styl/software.styl": 24,
+	"./pages/index/styl/index.styl": 26,
+	"./styles/fonts.styl": 28,
+	"./styles/variables.styl": 37,
+	"./templates/styl/layout.styl": 39
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 3;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var content = __webpack_require__(5);
 
 if (typeof content === 'string') {
   content = [[module.i, content, '']];
@@ -468,7 +536,7 @@ var options = {"injectType":"singletonStyleTag"}
 options.insert = "head";
 options.singleton = true;
 
-var update = __webpack_require__(0)(content, options);
+var update = __webpack_require__(1)(content, options);
 
 if (content.locals) {
   module.exports = content.locals;
@@ -476,92 +544,109 @@ if (content.locals) {
 
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/fonts/pt-sans-bold.svg";
-
-/***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/pt-sans-bold.ttf";
+exports = module.exports = __webpack_require__(0)(false);
+// Module
+exports.push([module.i, ".contact__section-header {\n  margin-top: 1.191185229rem;\n}\n.contact__box {\n  display: table;\n}\n.contact__row {\n  display: table-row;\n}\n.contact__item {\n  display: table-cell;\n  padding-top: 2.1rem;\n  font: normal 1.43rem/1 'PT Sans', Arial, sans-serif;\n  word-break: break-word;\n}\n.contact__row:first-child .contact__item {\n  padding-top: 1.9rem;\n}\n.contact__item_color_blue {\n  width: 8.5rem;\n  padding-right: 2.4rem;\n  color: #3d6cb0;\n  font-weight: bold;\n  text-transform: uppercase;\n}\n.contact__link {\n  color: #000;\n  text-decoration: none;\n}\n.contact__link:hover,\n.contact__link:active {\n  color: #3d6cb0;\n}\n.contact__link:visited {\n  color: #000;\n}\n", ""]);
+
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/pt-sans-bold.woff";
+var content = __webpack_require__(7);
+
+if (typeof content === 'string') {
+  content = [[module.i, content, '']];
+}
+
+var options = {"injectType":"singletonStyleTag"}
+
+options.insert = "head";
+options.singleton = true;
+
+var update = __webpack_require__(1)(content, options);
+
+if (content.locals) {
+  module.exports = content.locals;
+}
+
 
 /***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/pt-sans-bold.eot";
+exports = module.exports = __webpack_require__(0)(false);
+// Module
+exports.push([module.i, ".discrete-progress-bar {\n  display: flex;\n  flex-flow: row nowrap;\n  justify-content: center;\n}\n.discrete-progress-bar__item {\n  width: 1.1rem;\n  height: 1.1rem;\n  margin-right: 0.7rem;\n  background: #e6e6e6;\n  border-radius: 50%;\n}\n.discrete-progress-bar__item:last-child {\n  margin-right: 0;\n}\n.discrete-progress-bar__item_filled {\n  background: #3d6cb0;\n}\n", ""]);
+
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/pt-sans.svg";
+var content = __webpack_require__(9);
+
+if (typeof content === 'string') {
+  content = [[module.i, content, '']];
+}
+
+var options = {"injectType":"singletonStyleTag"}
+
+options.insert = "head";
+options.singleton = true;
+
+var update = __webpack_require__(1)(content, options);
+
+if (content.locals) {
+  module.exports = content.locals;
+}
+
 
 /***/ }),
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/pt-sans.ttf";
+exports = module.exports = __webpack_require__(0)(false);
+// Module
+exports.push([module.i, ".education__section-header {\n  margin-top: 1.191185229rem;\n}\n.education__list {\n  margin-top: 1.6rem;\n}\n", ""]);
+
 
 /***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/pt-sans.woff";
+var content = __webpack_require__(11);
+
+if (typeof content === 'string') {
+  content = [[module.i, content, '']];
+}
+
+var options = {"injectType":"singletonStyleTag"}
+
+options.insert = "head";
+options.singleton = true;
+
+var update = __webpack_require__(1)(content, options);
+
+if (content.locals) {
+  module.exports = content.locals;
+}
+
 
 /***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "assets/fonts/pt-sans.eot";
+exports = module.exports = __webpack_require__(0)(false);
+// Module
+exports.push([module.i, ".experience-list {\n  margin: 0;\n  padding: 0;\n}\n.experience-list__item {\n  list-style: none;\n  position: relative;\n  margin: 0 0 1.1rem 3.275759381rem;\n}\n.experience-list__item:last-child {\n  margin-bottom: 0;\n}\n.experience-list__item::before {\n  content: '';\n  position: absolute;\n  top: 0.22rem;\n  left: -2.620607504rem;\n  width: 1.295413937rem;\n  height: 1.295413937rem;\n  margin-right: 5px;\n  border-radius: 50%;\n  background: #000;\n}\n.experience-list__title {\n  display: inline;\n  text-transform: uppercase;\n  font: bold 1.65rem/1 'PT Sans', Arial, sans-serif;\n  letter-spacing: 0.05rem;\n  word-spacing: -0.2rem;\n}\n.experience-list__title_color_blue {\n  color: #3d6cb0;\n}\n.experience-list__date {\n  display: inline;\n  text-transform: capitalize;\n  font: normal 1.65rem/1 'PT Sans', Arial, sans-serif;\n  white-space: nowrap;\n  letter-spacing: -0.03rem;\n}\n.experience-list__date::before {\n  content: '// ';\n  display: inherit;\n  padding-left: 0.7rem;\n  text-transform: inherit;\n  font-weight: inherit;\n  white-space: inherit;\n}\n@media screen and (max-width: 500px) {\n  .experience-list__date::before {\n    content: '';\n    display: block;\n    padding-left: 0;\n  }\n}\n.experience-list__place {\n  margin-top: 0.4rem;\n  text-transform: uppercase;\n  font: normal 1.65rem/1 'PT Sans', Arial, sans-serif;\n  letter-spacing: -0.045rem;\n}\n.experience-list__description {\n  margin-top: 0.6rem;\n  font: normal 1rem/1.2 'PT Sans', Arial, sans-serif;\n}\n", ""]);
+
 
 /***/ }),
 /* 12 */
-/***/ (function(module, exports) {
-
-module.exports = function escape(url) {
-    if (typeof url !== 'string') {
-        return url
-    }
-    // If url is already wrapped in quotes, remove them
-    if (/^['"].*['"]$/.test(url)) {
-        url = url.slice(1, -1);
-    }
-    // Should url be wrapped?
-    // See https://drafts.csswg.org/css-values-3/#urls
-    if (/["'() \t\n]/.test(url)) {
-        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"'
-    }
-
-    return url
-}
-
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var escape = __webpack_require__(12);
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, "@font-face {\n  font-family: 'PT Sans';\n  src: url(" + escape(__webpack_require__(11)) + ");\n  src: local('\\263A'), url(" + escape(__webpack_require__(10)) + ") format('woff'), url(" + escape(__webpack_require__(9)) + ") format('truetype'), url(" + escape(__webpack_require__(8)) + ") format('svg');\n  font-weight: normal;\n  font-style: normal;\n}\n@font-face {\n  font-family: 'PT Sans';\n  src: url(" + escape(__webpack_require__(7)) + ");\n  src: local('\\263A'), url(" + escape(__webpack_require__(6)) + ") format('woff'), url(" + escape(__webpack_require__(5)) + ") format('truetype'), url(" + escape(__webpack_require__(4)) + ") format('svg');\n  font-weight: bold;\n  font-style: normal;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var content = __webpack_require__(13);
@@ -575,7 +660,7 @@ var options = {"injectType":"singletonStyleTag"}
 options.insert = "head";
 options.singleton = true;
 
-var update = __webpack_require__(0)(content, options);
+var update = __webpack_require__(1)(content, options);
 
 if (content.locals) {
   module.exports = content.locals;
@@ -583,21 +668,16 @@ if (content.locals) {
 
 
 /***/ }),
-/* 15 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, "* {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\nhtml {\n  font-family: 'PT Sans', Arial, sans-serif;\n  font-size: 16.79px;\n  color: #000;\n  background-color: #fff;\n}\n@media screen and (max-width: 1042px) {\n  html {\n    font-size: 13.43px;\n  }\n}\n", ""]);
-
-// exports
+exports = module.exports = __webpack_require__(0)(false);
+// Module
+exports.push([module.i, ".experience__section-header {\n  margin-top: 1rem;\n}\n.experience__list {\n  margin-top: 3.2rem;\n}\n", ""]);
 
 
 /***/ }),
-/* 16 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var content = __webpack_require__(15);
@@ -611,7 +691,7 @@ var options = {"injectType":"singletonStyleTag"}
 options.insert = "head";
 options.singleton = true;
 
-var update = __webpack_require__(0)(content, options);
+var update = __webpack_require__(1)(content, options);
 
 if (content.locals) {
   module.exports = content.locals;
@@ -619,21 +699,16 @@ if (content.locals) {
 
 
 /***/ }),
-/* 17 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".index__content {\n  width: 90.7%;\n  margin-left: 4.8%;\n  padding: 3.8rem 0 3.1rem 0;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.index__left-column {\n  width: 36.7%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n}\n@media screen and (max-width: 1042px) {\n  .index__left-column {\n    width: 100%;\n  }\n}\n.index__right-column {\n  width: 56.2%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n}\n@media screen and (max-width: 1042px) {\n  .index__right-column {\n    width: 100%;\n  }\n}\n.index__header {\n  margin: 2.02501489rem 0;\n  padding-left: 3.797524907295715%;\n}\n@media screen and (max-width: 1042px) {\n  .index__header {\n    margin: 0;\n  }\n}\n.index__contact,\n.index__profile,\n.index__skills,\n.index__experience,\n.index__software {\n  margin-top: 2.02501489rem;\n}\n@media screen and (max-width: 1042px) {\n  .index__education {\n    margin-top: 2.02501489rem;\n  }\n}\n", ""]);
-
-// exports
+exports = module.exports = __webpack_require__(0)(false);
+// Module
+exports.push([module.i, ".header__photo {\n  width: 14.88981537rem;\n  height: 14.88981537rem;\n  margin: 0 auto;\n  background: #3d6cb0 no-repeat;\n  background-size: cover;\n  border: 0.893388922rem solid #fff;\n  border-radius: 50%;\n  box-shadow: 0 0 0 2px #3d6cb0;\n}\n.header__name {\n  margin-top: 1.6rem;\n  text-align: center;\n  text-transform: uppercase;\n}\n.header__firstname {\n  font: normal 3.6rem/0.97 'PT Sans', Arial, sans-serif;\n  letter-spacing: -0.05rem;\n}\n.header__lastname {\n  font: bold 3.8rem/0.95 'PT Sans', Arial, sans-serif;\n  letter-spacing: 0.2rem;\n  word-wrap: break-word;\n}\n.header__job-title {\n  margin-top: 0.7rem;\n  font: bold 1.6rem/1 'PT Sans', Arial, sans-serif;\n  text-align: center;\n  text-transform: uppercase;\n}\n", ""]);
 
 
 /***/ }),
-/* 18 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var content = __webpack_require__(17);
@@ -647,7 +722,7 @@ var options = {"injectType":"singletonStyleTag"}
 options.insert = "head";
 options.singleton = true;
 
-var update = __webpack_require__(0)(content, options);
+var update = __webpack_require__(1)(content, options);
 
 if (content.locals) {
   module.exports = content.locals;
@@ -655,21 +730,16 @@ if (content.locals) {
 
 
 /***/ }),
-/* 19 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".software__section-header {\n  margin-top: 1.3rem;\n}\n.software__software-box {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  width: 98.6%;\n  margin: 0 auto;\n}\n.software__title {\n  text-transform: uppercase;\n  margin-bottom: 0.95rem;\n  font-size: 1.65rem;\n  font-weight: normal;\n  line-height: 1em;\n}\n.software__software-item {\n  margin-top: 1.6rem;\n  width: 44%;\n}\n@media screen and (max-width: screen-sm) {\n  .software__software-item {\n    width: 100%;\n  }\n}\n", ""]);
-
-// exports
+exports = module.exports = __webpack_require__(0)(false);
+// Module
+exports.push([module.i, ".profile__section-header {\n  margin-top: 1rem;\n}\n.profile__text {\n  margin-top: 1.1rem;\n  font: 1rem/1.2 'PT Sans', Arial, sans-serif;\n}\n", ""]);
 
 
 /***/ }),
-/* 20 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var content = __webpack_require__(19);
@@ -683,7 +753,7 @@ var options = {"injectType":"singletonStyleTag"}
 options.insert = "head";
 options.singleton = true;
 
-var update = __webpack_require__(0)(content, options);
+var update = __webpack_require__(1)(content, options);
 
 if (content.locals) {
   module.exports = content.locals;
@@ -691,21 +761,16 @@ if (content.locals) {
 
 
 /***/ }),
-/* 21 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".skills__section-header {\n  margin-top: 1.191185229rem;\n}\n.skills__skill-box {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n}\n.skills__skill-item {\n  -webkit-box-flex: 0;\n      -ms-flex: 0 0 350px;\n          flex: 0 0 350px;\n  margin-top: 1.45rem;\n  text-align: center;\n}\n.skills__title {\n  font-size: 1.65rem;\n  font-weight: normal;\n  line-height: 1em;\n  text-transform: uppercase;\n  text-align: center;\n}\n.skills__discrete-progress-bar {\n  margin-top: 0.7rem;\n}\n", ""]);
-
-// exports
+exports = module.exports = __webpack_require__(0)(false);
+// Module
+exports.push([module.i, ".progress-bar {\n  position: relative;\n  height: 1.488981537rem;\n  width: 100%;\n  background: #e6e6e6;\n}\n.progress-bar__inner {\n  height: inherit;\n  background: #3d6cb0;\n}\n", ""]);
 
 
 /***/ }),
-/* 22 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var content = __webpack_require__(21);
@@ -719,7 +784,7 @@ var options = {"injectType":"singletonStyleTag"}
 options.insert = "head";
 options.singleton = true;
 
-var update = __webpack_require__(0)(content, options);
+var update = __webpack_require__(1)(content, options);
 
 if (content.locals) {
   module.exports = content.locals;
@@ -727,21 +792,16 @@ if (content.locals) {
 
 
 /***/ }),
-/* 23 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".section-header {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -ms-flex-line-pack: justify;\n      align-content: space-between;\n}\n.section-header__icon {\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n}\n.section-header__line {\n  height: 0.357355569rem;\n  -ms-flex-preferred-size: 0px;\n      flex-basis: 0px;\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  background-color: #3d6cb0;\n}\n.section-header__title {\n  margin-left: 0.9rem;\n  margin-right: 0.5rem;\n  font-size: 2.6rem;\n  color: #3d6cb0;\n  text-transform: uppercase;\n  letter-spacing: 0.1rem;\n}\n.section-header__title_distant {\n  margin-left: 1.3rem;\n}\n", ""]);
-
-// exports
+exports = module.exports = __webpack_require__(0)(false);
+// Module
+exports.push([module.i, ".section-header {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  align-content: space-between;\n}\n.section-header__icon {\n  flex: 4.645622394rem 0 0;\n  height: 4.645622394rem;\n  background: #3d6cb0 no-repeat;\n  background-size: cover;\n  border: 0.208457415rem solid #fff;\n  border-radius: 50%;\n  box-shadow: 0 0 0 2px #3d6cb0;\n}\n.section-header__line {\n  height: 0.357355569rem;\n  flex: 1 1 0rem;\n  background: #3d6cb0;\n}\n.section-header__title {\n  margin: 0 0.5rem 0 0.9rem;\n  font-size: 2.6rem;\n  color: #3d6cb0;\n  text-transform: uppercase;\n  letter-spacing: 0.1rem;\n}\n.section-header__title_distant {\n  margin-left: 1.3rem;\n}\n", ""]);
 
 
 /***/ }),
-/* 24 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var content = __webpack_require__(23);
@@ -755,7 +815,7 @@ var options = {"injectType":"singletonStyleTag"}
 options.insert = "head";
 options.singleton = true;
 
-var update = __webpack_require__(0)(content, options);
+var update = __webpack_require__(1)(content, options);
 
 if (content.locals) {
   module.exports = content.locals;
@@ -763,21 +823,16 @@ if (content.locals) {
 
 
 /***/ }),
-/* 25 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".round-image {\n  display: inline-block;\n  width: 14.88981537rem;\n  height: 0;\n  border-width: 0.893388922rem;\n  padding-bottom: 13.103037526000001rem;\n  background-color: #3d6cb0;\n  border-color: #fff;\n  border-style: solid;\n  border-radius: 50%;\n  -webkit-box-shadow: 0 0 0 2px #3d6cb0;\n          box-shadow: 0 0 0 2px #3d6cb0;\n}\n.round-image_size_small {\n  width: 4.645622394rem;\n  border-width: 0.208457415rem;\n  padding-bottom: 4.228707564rem;\n  background-repeat: no-repeat;\n}\n", ""]);
-
-// exports
+exports = module.exports = __webpack_require__(0)(false);
+// Module
+exports.push([module.i, ".skills__section-header {\n  margin-top: 1.191185229rem;\n}\n.skills__skill-box {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: space-around;\n}\n.skills__skill-item {\n  flex: 0 0 350px;\n  margin-top: 1.6rem;\n  text-align: center;\n}\n.skills__title {\n  font: normal 1.65rem/1 'PT Sans', Arial, sans-serif;\n  text-transform: uppercase;\n  text-align: center;\n}\n.skills__discrete-progress-bar {\n  margin-top: 0.7rem;\n}\n", ""]);
 
 
 /***/ }),
-/* 26 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var content = __webpack_require__(25);
@@ -791,7 +846,7 @@ var options = {"injectType":"singletonStyleTag"}
 options.insert = "head";
 options.singleton = true;
 
-var update = __webpack_require__(0)(content, options);
+var update = __webpack_require__(1)(content, options);
 
 if (content.locals) {
   module.exports = content.locals;
@@ -799,21 +854,16 @@ if (content.locals) {
 
 
 /***/ }),
-/* 27 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".progress-bar {\n  position: relative;\n  height: 1.488981537rem;\n  width: 100%;\n  background-color: #e6e6e6;\n}\n.progress-bar__inner {\n  height: inherit;\n  background-color: #3d6cb0;\n}\n", ""]);
-
-// exports
+exports = module.exports = __webpack_require__(0)(false);
+// Module
+exports.push([module.i, ".software__section-header {\n  margin-top: 1.3rem;\n}\n.software__software-box {\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: space-between;\n  width: 98.6%;\n  margin: 0 auto;\n}\n.software__title {\n  text-transform: uppercase;\n  margin-bottom: 0.95rem;\n  font: normal 1.65rem/1 'PT Sans', Arial, sans-serif;\n}\n.software__software-item {\n  margin-top: 1.6rem;\n  width: 44%;\n}\n@media screen and (max-width: 500px) {\n  .software__software-item {\n    width: 100%;\n  }\n}\n", ""]);
 
 
 /***/ }),
-/* 28 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var content = __webpack_require__(27);
@@ -827,7 +877,7 @@ var options = {"injectType":"singletonStyleTag"}
 options.insert = "head";
 options.singleton = true;
 
-var update = __webpack_require__(0)(content, options);
+var update = __webpack_require__(1)(content, options);
 
 if (content.locals) {
   module.exports = content.locals;
@@ -835,21 +885,16 @@ if (content.locals) {
 
 
 /***/ }),
-/* 29 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".profile__section-header {\n  margin-top: 1rem;\n}\n.profile__text {\n  margin-top: 0.536033353rem;\n  font-size: 1rem;\n  line-height: 1.2em;\n}\n", ""]);
-
-// exports
+exports = module.exports = __webpack_require__(0)(false);
+// Module
+exports.push([module.i, ".index__content {\n  width: 90.7%;\n  margin-left: 4.8%;\n  padding: 3.8rem 0 3.1rem 0;\n  display: flex;\n  flex-flow: row wrap;\n  justify-content: space-between;\n}\n.index__left-column {\n  width: 36.7%;\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n}\n@media screen and (max-width: 1042px) {\n  .index__left-column {\n    width: 100%;\n  }\n}\n.index__right-column {\n  width: 56.2%;\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n}\n@media screen and (max-width: 1042px) {\n  .index__right-column {\n    width: 100%;\n  }\n}\n.index__header {\n  margin: 2.02501489rem 0;\n  padding-left: 3.797524907295715%;\n}\n@media screen and (max-width: 1042px) {\n  .index__header {\n    margin: 0;\n  }\n}\n.index__contact,\n.index__profile,\n.index__skills,\n.index__experience,\n.index__software {\n  margin-top: 2.02501489rem;\n}\n@media screen and (max-width: 1042px) {\n  .index__education {\n    margin-top: 2.02501489rem;\n  }\n}\n", ""]);
 
 
 /***/ }),
-/* 30 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var content = __webpack_require__(29);
@@ -863,104 +908,101 @@ var options = {"injectType":"singletonStyleTag"}
 options.insert = "head";
 options.singleton = true;
 
-var update = __webpack_require__(0)(content, options);
+var update = __webpack_require__(1)(content, options);
 
 if (content.locals) {
   module.exports = content.locals;
 }
 
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// Imports
+var getUrl = __webpack_require__(30);
+var ___CSS_LOADER_URL___0___ = getUrl(__webpack_require__(31));
+var ___CSS_LOADER_URL___1___ = getUrl(__webpack_require__(32));
+var ___CSS_LOADER_URL___2___ = getUrl(__webpack_require__(33));
+var ___CSS_LOADER_URL___3___ = getUrl(__webpack_require__(34));
+var ___CSS_LOADER_URL___4___ = getUrl(__webpack_require__(35));
+var ___CSS_LOADER_URL___5___ = getUrl(__webpack_require__(36));
+// Module
+exports.push([module.i, "@font-face {\n  font-family: 'PT Sans';\n  src: local('☺'), url(" + ___CSS_LOADER_URL___0___ + ") format('woff'), url(" + ___CSS_LOADER_URL___1___ + ") format('truetype'), url(" + ___CSS_LOADER_URL___2___ + ") format('svg');\n  font-weight: normal;\n  font-style: normal;\n}\n@font-face {\n  font-family: 'PT Sans';\n  src: local('☺'), url(" + ___CSS_LOADER_URL___3___ + ") format('woff'), url(" + ___CSS_LOADER_URL___4___ + ") format('truetype'), url(" + ___CSS_LOADER_URL___5___ + ") format('svg');\n  font-weight: bold;\n  font-style: normal;\n}\n", ""]);
+
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function (url, needQuotes) {
+  // eslint-disable-next-line no-underscore-dangle, no-param-reassign
+  url = url.__esModule ? url.default : url;
+
+  if (typeof url !== 'string') {
+    return url;
+  } // If url is already wrapped in quotes, remove them
+
+
+  if (/^['"].*['"]$/.test(url)) {
+    // eslint-disable-next-line no-param-reassign
+    url = url.slice(1, -1);
+  } // Should url be wrapped?
+  // See https://drafts.csswg.org/css-values-3/#urls
+
+
+  if (/["'() \t\n]/.test(url) || needQuotes) {
+    return "\"".concat(url.replace(/"/g, '\\"').replace(/\n/g, '\\n'), "\"");
+  }
+
+  return url;
+};
 
 /***/ }),
 /* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".header__photo {\n  text-align: center;\n}\n.header__name {\n  margin-top: 1.6rem;\n  text-align: center;\n  text-transform: uppercase;\n}\n.header__firstname {\n  font-size: 3.6rem;\n  font-weight: normal;\n  line-height: 3.5rem;\n  letter-spacing: -0.05rem;\n}\n.header__lastname {\n  font-size: 3.8rem;\n  font-weight: bold;\n  line-height: 3.6rem;\n  letter-spacing: 0.2rem;\n  word-wrap: break-word;\n}\n.header__job-title {\n  margin-top: 0.7rem;\n  font-size: 1.6rem;\n  font-weight: bold;\n  line-height: 1.6rem;\n  text-align: center;\n  text-transform: uppercase;\n}\n", ""]);
-
-// exports
-
+module.exports = __webpack_require__.p + "assets/fonts/pt-sans.woff";
 
 /***/ }),
 /* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var content = __webpack_require__(31);
-
-if (typeof content === 'string') {
-  content = [[module.i, content, '']];
-}
-
-var options = {"injectType":"singletonStyleTag"}
-
-options.insert = "head";
-options.singleton = true;
-
-var update = __webpack_require__(0)(content, options);
-
-if (content.locals) {
-  module.exports = content.locals;
-}
-
+module.exports = __webpack_require__.p + "assets/fonts/pt-sans.ttf";
 
 /***/ }),
 /* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".experience__section-header {\n  margin-top: 1rem;\n}\n.experience__list {\n  margin-top: 2.6rem;\n}\n", ""]);
-
-// exports
-
+module.exports = __webpack_require__.p + "assets/fonts/pt-sans.svg";
 
 /***/ }),
 /* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var content = __webpack_require__(33);
-
-if (typeof content === 'string') {
-  content = [[module.i, content, '']];
-}
-
-var options = {"injectType":"singletonStyleTag"}
-
-options.insert = "head";
-options.singleton = true;
-
-var update = __webpack_require__(0)(content, options);
-
-if (content.locals) {
-  module.exports = content.locals;
-}
-
+module.exports = __webpack_require__.p + "assets/fonts/pt-sans-bold.woff";
 
 /***/ }),
 /* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".experience-list {\n  margin: 0;\n  padding: 0;\n}\n.experience-list__item {\n  list-style: none;\n  position: relative;\n  margin-left: 3.275759381rem;\n  margin-bottom: 1.1rem;\n}\n.experience-list__item:last-child {\n  margin-bottom: 0;\n}\n.experience-list__item::before {\n  content: '';\n  position: absolute;\n  top: 0.22rem;\n  left: -2.620607504rem;\n  width: 1.295413937rem;\n  height: 1.295413937rem;\n  margin-right: 5px;\n  border-radius: 50%;\n  background-color: #000;\n}\n.experience-list__title {\n  display: inline;\n  text-transform: uppercase;\n  font-size: 1.65rem;\n  font-weight: bold;\n  letter-spacing: 0.05rem;\n  line-height: 1em;\n  word-spacing: -0.2rem;\n}\n.experience-list__title_color_blue {\n  color: #3d6cb0;\n}\n.experience-list__date {\n  display: inline;\n  text-transform: capitalize;\n  font-size: 1.65rem;\n  font-weight: normal;\n  line-height: 1em;\n  white-space: nowrap;\n  letter-spacing: -0.03rem;\n}\n.experience-list__date::before {\n  content: '// ';\n  display: inherit;\n  padding-left: 0.7rem;\n  text-transform: inherit;\n  font-weight: inherit;\n  white-space: inherit;\n}\n@media screen and (max-width: 500px) {\n  .experience-list__date::before {\n    content: '';\n    display: block;\n    padding-left: 0;\n  }\n}\n.experience-list__place {\n  margin-top: 0.4rem;\n  text-transform: uppercase;\n  font-size: 1.65rem;\n  line-height: 1em;\n  font-weight: normal;\n  letter-spacing: -0.045rem;\n}\n.experience-list__description {\n  margin-top: 0.6rem;\n  font-size: 1rem;\n  line-height: 1.2em;\n}\n", ""]);
-
-// exports
-
+module.exports = __webpack_require__.p + "assets/fonts/pt-sans-bold.ttf";
 
 /***/ }),
 /* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var content = __webpack_require__(35);
+module.exports = __webpack_require__.p + "assets/fonts/pt-sans-bold.svg";
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var content = __webpack_require__(38);
 
 if (typeof content === 'string') {
   content = [[module.i, content, '']];
@@ -971,280 +1013,51 @@ var options = {"injectType":"singletonStyleTag"}
 options.insert = "head";
 options.singleton = true;
 
-var update = __webpack_require__(0)(content, options);
+var update = __webpack_require__(1)(content, options);
 
 if (content.locals) {
   module.exports = content.locals;
 }
-
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".education__section-header {\n  margin-top: 1.191185229rem;\n}\n.education__list {\n  margin-top: 1.6rem;\n}\n", ""]);
-
-// exports
 
 
 /***/ }),
 /* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var content = __webpack_require__(37);
-
-if (typeof content === 'string') {
-  content = [[module.i, content, '']];
-}
-
-var options = {"injectType":"singletonStyleTag"}
-
-options.insert = "head";
-options.singleton = true;
-
-var update = __webpack_require__(0)(content, options);
-
-if (content.locals) {
-  module.exports = content.locals;
-}
+exports = module.exports = __webpack_require__(0)(false);
+// Module
+exports.push([module.i, "", ""]);
 
 
 /***/ }),
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(1)(false);
-// imports
+var content = __webpack_require__(40);
 
+if (typeof content === 'string') {
+  content = [[module.i, content, '']];
+}
 
-// module
-exports.push([module.i, ".discrete-progress-bar {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: nowrap;\n      flex-wrap: nowrap;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.discrete-progress-bar__item {\n  width: 1.1rem;\n  height: 1.1rem;\n  margin-right: 0.7rem;\n  background-color: #e6e6e6;\n  border-radius: 50%;\n}\n.discrete-progress-bar__item:last-child {\n  margin-right: 0;\n}\n.discrete-progress-bar__item_filled {\n  background-color: #3d6cb0;\n}\n", ""]);
+var options = {"injectType":"singletonStyleTag"}
 
-// exports
+options.insert = "head";
+options.singleton = true;
+
+var update = __webpack_require__(1)(content, options);
+
+if (content.locals) {
+  module.exports = content.locals;
+}
 
 
 /***/ }),
 /* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var content = __webpack_require__(39);
-
-if (typeof content === 'string') {
-  content = [[module.i, content, '']];
-}
-
-var options = {"injectType":"singletonStyleTag"}
-
-options.insert = "head";
-options.singleton = true;
-
-var update = __webpack_require__(0)(content, options);
-
-if (content.locals) {
-  module.exports = content.locals;
-}
-
-
-/***/ }),
-/* 41 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, ".contact__section-header {\n  margin-top: 1.191185229rem;\n}\n.contact__box {\n  display: table;\n}\n.contact__row {\n  display: table-row;\n}\n.contact__item {\n  display: table-cell;\n  padding-top: 2.1rem;\n  font-size: 1.429422275rem;\n  line-height: 1.429422275rem;\n  word-break: break-word;\n}\n.contact__row:first-child .contact__item {\n  padding-top: 1.9rem;\n}\n.contact__item_color_blue {\n  width: 8.5rem;\n  padding-right: 2.4rem;\n  color: #3d6cb0;\n  font-weight: bold;\n  text-transform: uppercase;\n}\n.contact__link {\n  color: #000;\n  text-decoration: none;\n}\n.contact__link:hover,\n.contact__link:active {\n  color: #3d6cb0;\n}\n.contact__link:visited {\n  color: #000;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 42 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var content = __webpack_require__(41);
-
-if (typeof content === 'string') {
-  content = [[module.i, content, '']];
-}
-
-var options = {"injectType":"singletonStyleTag"}
-
-options.insert = "head";
-options.singleton = true;
-
-var update = __webpack_require__(0)(content, options);
-
-if (content.locals) {
-  module.exports = content.locals;
-}
-
-
-/***/ }),
-/* 43 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./common.blocks/contact/styl/contact.styl": 42,
-	"./common.blocks/discrete-progress-bar/styl/discrete-progress-bar.styl": 40,
-	"./common.blocks/education/styl/education.styl": 38,
-	"./common.blocks/experience-list/styl/experience-list.styl": 36,
-	"./common.blocks/experience/styl/experience.styl": 34,
-	"./common.blocks/header/styl/header.styl": 32,
-	"./common.blocks/profile/styl/profile.styl": 30,
-	"./common.blocks/progress-bar/styl/progress-bar.styl": 28,
-	"./common.blocks/round-image/styl/round-image.styl": 26,
-	"./common.blocks/section-header/styl/section-header.styl": 24,
-	"./common.blocks/skills/styl/skills.styl": 22,
-	"./common.blocks/software/styl/software.styl": 20,
-	"./pages/index/styl/index.styl": 18,
-	"./styles/common.styl": 16,
-	"./styles/fonts.styl": 14,
-	"./styles/variables.styl": 3
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	var module = __webpack_require__(id);
-	return module;
-}
-function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) { // check for number or string
-		var e = new Error('Cannot find module "' + req + '".');
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return id;
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 43;
-
-/***/ }),
-/* 44 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/favicons/safari-pinned-tab.svg";
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/favicons/mstile-150x150.png";
-
-/***/ }),
-/* 46 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/favicons/favicon.ico";
-
-/***/ }),
-/* 47 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/favicons/favicon-32x32.png";
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/favicons/favicon-16x16.png";
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/favicons/browserconfig.xml";
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/favicons/apple-touch-icon.png";
-
-/***/ }),
-/* 51 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/favicons/android-chrome-256x256.png";
-
-/***/ }),
-/* 52 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "assets/favicons/android-chrome-192x192.png";
-
-/***/ }),
-/* 53 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./android-chrome-192x192.png": 52,
-	"./android-chrome-256x256.png": 51,
-	"./apple-touch-icon.png": 50,
-	"./browserconfig.xml": 49,
-	"./favicon-16x16.png": 48,
-	"./favicon-32x32.png": 47,
-	"./favicon.ico": 46,
-	"./mstile-150x150.png": 45,
-	"./safari-pinned-tab.svg": 44
-};
-
-
-function webpackContext(req) {
-	var id = webpackContextResolve(req);
-	var module = __webpack_require__(id);
-	return module;
-}
-function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) { // check for number or string
-		var e = new Error('Cannot find module "' + req + '".');
-		e.code = 'MODULE_NOT_FOUND';
-		throw e;
-	}
-	return id;
-}
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 53;
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-const faviconsContext = __webpack_require__(53);
-faviconsContext.keys().forEach(faviconsContext);
-
-/***/ }),
-/* 55 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _assets_favicons_favicons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54);
-/* harmony import */ var _assets_favicons_favicons__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_assets_favicons_favicons__WEBPACK_IMPORTED_MODULE_0__);
-
-
-function importAll(r) {
-  r.keys().forEach(r);
-}
-
-importAll(__webpack_require__(43));
+exports = module.exports = __webpack_require__(0)(false);
+// Module
+exports.push([module.i, "* {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\nhtml {\n  font: 16.79px 'PT Sans', Arial, sans-serif;\n  color: #000;\n  background: #fff;\n}\n@media screen and (max-width: 1042px) {\n  html {\n    font-size: 13.43px;\n  }\n}\n", ""]);
 
 
 /***/ })
