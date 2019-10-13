@@ -1,15 +1,16 @@
-include ../round-image/round-image.pug
-
 mixin sectionHeader(settings)
-    - const { title='', isDistant=false } = settings;
-    - const image = require(`../../assets/img/${title}-icon.svg`);
+    - const { imagePath, title='', isDistant=false } = settings;
     - const titleModifiers = { distant: 'section-header__title_distant' };
     - let titleClass = 'section-header__title';
+    - let iconInlineStyle = '';
     - if (isDistant) {
     -   titleClass += ` ${titleModifiers.distant}`;
     - }
+    - if (imagePath) {
+    -   const image = require(`../../${imagePath}`);
+    -   iconInlineStyle = `background-image: url(${image})`;
+    - }
     header.section-header
-        .section-header__icon
-            +roundImage({ size: 'small', image: image })
+        .section-header__icon(style=iconInlineStyle)
         h2(class = titleClass)= title
         .section-header__line

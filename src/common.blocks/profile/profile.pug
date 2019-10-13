@@ -2,6 +2,8 @@ include ../section-header/section-header.pug
 
 mixin profile(content)
     - const { text = '', markedText = ['']} = content;
+    - const title = 'profile';
+    - const imagePath = 'assets/img/profile-icon.svg';
     - const pattern = markedText.map((value) => {
     -   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     - }).join('|');
@@ -9,7 +11,7 @@ mixin profile(content)
     - const splittedText = text.split(findMarkedRegExp);
     section.profile
         .profile__section-header
-            +sectionHeader({ title: 'profile' })
+            +sectionHeader({ title, imagePath })
         p.profile__text
             each substring in splittedText
                 - if (markedText.indexOf(substring) !== -1) {

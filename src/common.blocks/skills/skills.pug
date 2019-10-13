@@ -3,9 +3,11 @@ include ../discrete-progress-bar/discrete-progress-bar.pug
 
 mixin skills(content)
     - const { max } = content;
+    - const title = 'skills';
+    - const imagePath = 'assets/img/skills-icon.svg';
     section.skills
         .skills__section-header
-            +sectionHeader({ title: 'skills' })
+            +sectionHeader({ title, imagePath })
         .skills__skill-box
             each val in content.items
                 - const { title, value } = val;
