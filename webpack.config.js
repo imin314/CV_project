@@ -42,8 +42,8 @@ module.exports = {
               options: {
                 ident: 'postcss',
                 plugins: [
-                  require('autoprefixer')({ browsers: ['last 2 version'] }),
-                  require('postcss-normalize')({ browsers: ['last 2 version'] }),
+                  require('autoprefixer'),
+                  require('postcss-normalize'),
                 ],
               },
 			      },
@@ -61,8 +61,8 @@ module.exports = {
                 options: {
                   ident: 'postcss',
                   plugins: [
-                    require('autoprefixer')({ browsers: ['last 2 version'] }),
-                    require('postcss-normalize')({ browsers: ['last 2 version'] }),
+                    require('autoprefixer'),
+                    require('postcss-normalize'),
                   ],
                 },
 				      },
