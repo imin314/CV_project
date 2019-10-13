@@ -2,19 +2,18 @@
 
 .discrete-progress-bar
   display flex
-  flex-direction row
-  flex-wrap nowrap
+  flex-flow row nowrap
   justify-content center
 
   &__item
     width 1.1rem
     height @width
     margin-right 0.7rem
-    background-color color-light
+    background color-light
     border-radius 50%
 	
     &:last-child
       margin-right 0
 	  
     &_filled
-      background-color color-main
+      background color-main
