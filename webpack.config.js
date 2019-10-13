@@ -70,7 +70,7 @@ module.exports = {
         },
         {
           test: /\.(jpg|png|svg)$/,
-          exclude: [/fonts/],
+          exclude: [/fonts/, /favicons/],
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
@@ -78,13 +78,24 @@ module.exports = {
           },
         },
         {
-          test: /\.(ttf|svg|eot|woff)$/,
-          exclude:[/img/],
+          test: /\.(ttf|svg|woff)$/,
+          exclude:[/img/, /favicons/],
           use: {
             loader: 'file-loader',
             options: { 
               name: '[name].[ext]',
               outputPath: './assets/fonts',
+            },
+		      },
+		    },
+        {
+          test: /\.(svg|png|ico|xml)$/,
+          exclude:[/img/, /fonts/],
+          use: {
+            loader: 'file-loader',
+            options: { 
+              name: '[name].[ext]',
+              outputPath: './assets/favicons',
             },
 		      },
 		    },
