@@ -11,7 +11,7 @@ mixin profile(content)
     - const splittedText = text.split(findMarkedRegExp);
     section.profile
         .profile__section-header
-            +sectionHeader({ title, imagePath })
+            +sectionHeader({ title })
         p.profile__text
             each substring in splittedText
                 - if (markedText.indexOf(substring) !== -1) {

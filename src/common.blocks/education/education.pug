@@ -4,9 +4,8 @@ include ../experience-list/experience-list.pug
 mixin education(content)
     - const { items } = content;
     - const title = 'education';
-    - const imagePath = 'assets/img/education-icon.svg';
     section.education
         .education__section-header
-            +sectionHeader({ title, imagePath, isDistant: true })
+            +sectionHeader({ title, isDistant: true })
         .education__list
             +experienceList(items, {titleColor: "blue"})

@@ -4,9 +4,8 @@ include ../experience-list/experience-list.pug
 mixin experience(content)
     - const { items } = content;
     - const title = 'experience';
-    - const imagePath = 'assets/img/experience-icon.svg';
     section.experience
         .experience__section-header
-            +sectionHeader({ title, imagePath, isDistant: true })
+            +sectionHeader({ title, isDistant: true })
         section.experience__list
             +experienceList(items)

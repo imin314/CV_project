@@ -1,14 +1,11 @@
 mixin sectionHeader(settings)
-    - const { imagePath, title='', isDistant=false } = settings;
+    - const { title='', isDistant=false } = settings;
+    - const image = require(`../../common.blocks/section-header/img/${title}-icon.svg`);
+    - const iconInlineStyle = `background-image: url(${image})`;
     - const titleModifiers = { distant: 'section-header__title_distant' };
     - let titleClass = 'section-header__title';
-    - let iconInlineStyle = '';
     - if (isDistant) {
     -   titleClass += ` ${titleModifiers.distant}`;
-    - }
-    - if (imagePath) {
-    -   const image = require(`../../${imagePath}`);
-    -   iconInlineStyle = `background-image: url(${image})`;
     - }
     header.section-header
         .section-header__icon(style=iconInlineStyle)

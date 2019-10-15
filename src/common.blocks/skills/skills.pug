@@ -7,7 +7,7 @@ mixin skills(content)
     - const imagePath = 'assets/img/skills-icon.svg';
     section.skills
         .skills__section-header
-            +sectionHeader({ title, imagePath })
+            +sectionHeader({ title })
         .skills__skill-box
             each val in content.items
                 - const { title, value } = val;

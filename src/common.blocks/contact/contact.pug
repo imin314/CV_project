@@ -4,10 +4,9 @@ mixin contact(content)
     - const { address, email, phone, website } = content;
     - const phoneNumber = phone.replace(/\(0\)|\s+|-/g,'');
     - const title = 'contact';
-    - const imagePath = 'assets/img/contact-icon.svg';
     section.contact
         .contact__section-header
-            +sectionHeader({ title, imagePath })
+            +sectionHeader({ title })
         .contact__box
             .contact__row
                 .contact__item.contact__item_color_blue address

@@ -6,7 +6,7 @@ mixin software(content)
     - const imagePath = 'assets/img/software-icon.svg';
     section.software
         .software__section-header
-            +sectionHeader({ title, imagePath, isDistant: true })
+            +sectionHeader({ title, isDistant: true })
         .software__software-box
             each val in content.items
                 - const { title, value } = val;
